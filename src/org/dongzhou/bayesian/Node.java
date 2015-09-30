@@ -558,7 +558,8 @@ public class Node {
 
 	public static enum TakeSleepMedication {
 
-		YES(1, "YES"), NO(2, "NO");
+		EVERY_NIGHT(1, "EVERY_NIGHT"), MOST_NIGHTS(2, "MOST_NIGHTS"), SOME_NIGHTS(3,
+				"SOME_NIGHTS"), RARELY(4, "RARELY"), NEVER(5, "NEVER");
 
 		private static final Map<Integer, String> map;
 

@@ -133,12 +133,6 @@ public class LearnCPTs {
 		net.compile();
 	}
 
-	private static void showNodes() throws Exception {
-		showNode(H);
-		showNode(SL);
-		showNode(SM);
-	}
-
 	private static void showNode(Node node) throws NeticaException {
 		logger.info("--------- begin to show node --------- ");
 		logger.info(node.getStateNames());
@@ -178,17 +172,32 @@ public class LearnCPTs {
 		nodeIndex.put(SM, 16);
 	}
 
+	// IDnum H HA BH BB HS KS HIS BS HAS FS WF DD DN DW SL SM
 	private static void testCPTs(Node node) throws NeticaException {
-		// IDnum H HA BH BB HS KS HIS BS HAS FS WF DD DN DW SL SM
 		List<String> testSet = FileUtil.loadData(FileUtil.testFile);
 		int checkSame = 0;
-		for (String oneCase : testSet) {
-			String[] states = oneCase.split(" ");
-			String testData = states[nodeIndex.get(node)];
+		for (int i = 0; i < testSet.size(); i++) {
+			if (i == 0)
+				continue;
+			String[] states = testSet.get(i).split(" ");
+			for (Map.Entry<Node, Integer> entry : nodeIndex.entrySet()) {
+				Node oNode = entry.getKey();
+				if (oNode.equals(node))
+					continue;
+				String oState = states[nodeIndex.get(oNode)];
+				if (oState.equals("null"))
+					continue;
+				oNode.finding().enterState(oState);
+			}
 			String aimData = findMaxState(node);
-			logger.info("Test: [" + testData + "] " + " Aim: [" + aimData + "]");
+			String testData = states[nodeIndex.get(node)];
 			if (testData.equalsIgnoreCase(aimData))
 				checkSame++;
+			logger.info("Test: [" + testData + "] " + " Aim: [" + aimData + "]");
+			for (Map.Entry<Node, Integer> entry : nodeIndex.entrySet()) {
+				Node oNode = entry.getKey();
+				oNode.finding().clear();
+			}
 		}
 		float percent = checkSame * 100 / (testSet.size() - 1);
 		StringBuffer oLog = new StringBuffer();
@@ -214,9 +223,9 @@ public class LearnCPTs {
 		addNodeToNet(net);
 		addLinkToNet();
 		learnCPTs(net);
-		showNodes();
+		showNode(H);
 		initNodeIndex();
-		testCPTs(BH);
+		testCPTs(BB);
 	}
 
 }

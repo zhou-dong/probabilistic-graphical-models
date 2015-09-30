@@ -194,7 +194,7 @@ public class FileUtil {
 	public static String testFile = "data/testFile.csv";
 
 	public static void main(String[] args) {
-		int key = 0;
+		int key = 1;
 		switch (key) {
 		case 0:
 			rewriteFile(sourceFile, destinationFile);
