@@ -94,6 +94,7 @@ public class Node {
 		private String name;
 
 		private BrokenHip(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -130,6 +131,7 @@ public class Node {
 		private String name;
 
 		private BrokenBones(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -166,6 +168,7 @@ public class Node {
 		private String name;
 
 		private HospitalStay(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -202,6 +205,7 @@ public class Node {
 		private String name;
 
 		private KneeSurgery(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -238,6 +242,7 @@ public class Node {
 		private String name;
 
 		private HipSurgery(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -274,6 +279,7 @@ public class Node {
 		private String name;
 
 		private BackSurgery(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -310,6 +316,7 @@ public class Node {
 		private String name;
 
 		private HeartSurgery(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -346,6 +353,7 @@ public class Node {
 		private String name;
 
 		private FallIn(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -382,6 +390,7 @@ public class Node {
 		private String name;
 
 		private WorryFalling(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -417,6 +426,7 @@ public class Node {
 		private String name;
 
 		private DepressionOrHopelessness(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -453,6 +463,7 @@ public class Node {
 		private String name;
 
 		private NervousOrAnxious(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -489,6 +500,7 @@ public class Node {
 		private String name;
 
 		private CanNotStopWorrying(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -525,6 +537,7 @@ public class Node {
 		private String name;
 
 		private MoreThan30MinsToSleep(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 
@@ -561,6 +574,7 @@ public class Node {
 		private String name;
 
 		private TakeSleepMedication(int index, String name) {
+			this.index = index;
 			this.name = name;
 		}
 

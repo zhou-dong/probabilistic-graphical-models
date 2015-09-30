@@ -1,5 +1,8 @@
 package org.dongzhou.bayesian;
 
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+
 import org.apache.log4j.Logger;
 import org.dongzhou.bayesian.Node.BackSurgery;
 import org.dongzhou.bayesian.Node.BrokenBones;
@@ -21,6 +24,8 @@ import org.dongzhou.bayesian.Node.WorryFalling;
 import norsys.netica.Environ;
 import norsys.netica.Net;
 import norsys.netica.NeticaException;
+import norsys.netica.gui.NetPanel;
+import norsys.netica.gui.NodePanel;
 import norsys.neticaEx.aliases.Node;
 
 public class BuildNet {
@@ -101,11 +106,24 @@ public class BuildNet {
 		logger.info("Add link to net finished");
 	}
 
+	public static void drawNet(Net net) throws Exception {
+		JFrame frame = new JFrame(net.getName());
+		net.compile();
+		NetPanel netPanel = new NetPanel(net, NodePanel.NODE_STYLE_BELIEF_BARS);
+		netPanel.setLinkPolicy(NetPanel.LINK_POLICY_BELOW);
+		frame.getContentPane().add(new JScrollPane(netPanel));
+		frame.setAlwaysOnTop(false);
+		frame.setLocation(150, 50);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// frame.setSize(800, 500); // or supply getPreferredSize();
+		frame.setSize(frame.getPreferredSize());
+		frame.setVisible(true);
+	}
+
 	public static void main(String[] args) throws Exception {
 		Net net = createNet("HealthNet");
 		addNodeToNet(net);
 		addLinkToNet();
-		System.out.println(net.getNodes());
 	}
 
 }
