@@ -13,4 +13,4 @@ Course Info:
 
 Web Address of [netica](https://www.norsys.com/netica-j.html)
 
-[Example web address] https://www.norsys.com/netica-j/examples/BuildNet.html
+[Example web address](https://www.norsys.com/netica-j/examples/BuildNet.html)
