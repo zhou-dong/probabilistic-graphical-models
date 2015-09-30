@@ -583,7 +583,6 @@ public class Node {
 		StringBuffer result = new StringBuffer();
 		int x = 1;
 		for (Enum<?> e : arrays) {
-			System.out.println(e.name());
 			result.append(e.toString());
 			if (x != arrays.length)
 				result.append(",");
