@@ -250,3 +250,23 @@ INFO main org.dongzhou.bayesian.BuildNet - 0.18214563
 INFO main org.dongzhou.bayesian.BuildNet - 0.2465691
 INFO main org.dongzhou.bayesian.BuildNet - 0.24721101
 INFO main org.dongzhou.bayesian.BuildNet - 0.17814568
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to create NET
+INFO main org.dongzhou.bayesian.LearnCPTs - Create Net finish
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add node to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add node to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add link to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add link to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.LearnCPTs - Learn CPTs finished
+INFO main org.dongzhou.bayesian.LearnCPTs - EXCELLENT,VERY_GOOD,GOOD,FAIR,POOR
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.07471265
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.25862068
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.35440615
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.22605364
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.0862069
+INFO main org.dongzhou.bayesian.LearnCPTs - EVERY_NIGHT,MOST_NIGHTS,SOME_NIGHTS,RARELY,NEVER
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.14592862
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.18214563
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.2465691
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.24721101
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.17814568

@@ -29,9 +29,9 @@ import norsys.netica.gui.NetPanel;
 import norsys.netica.gui.NodePanel;
 import norsys.neticaEx.aliases.Node;
 
-public class BuildNet {
+public class LearnCPTs {
 
-	static Logger logger = Logger.getLogger(BuildNet.class.getName());
+	static Logger logger = Logger.getLogger(LearnCPTs.class.getName());
 
 	static Node H, HA, BH, BB, HS, KS, HIS, BS, HAS, FS, WF, DD, DN, DW, SL, SM;
 
@@ -141,7 +141,7 @@ public class BuildNet {
 	}
 
 	public static void main(String[] args) throws Exception {
-		Net net = createNet("HealthNet");
+		Net net = createNet("SleepingCPTs");
 		addNodeToNet(net);
 		addLinkToNet();
 		learnCPTs(net);

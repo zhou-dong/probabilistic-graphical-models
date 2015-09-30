@@ -171,10 +171,6 @@ public class FileUtil {
 		return result;
 	}
 
-	public static void main(String[] args) {
-		divideDataset();
-	}
-
 	static Random randomGenerator = new Random();
 
 	private static int getRandomNumber(int dataSize) {
@@ -196,5 +192,17 @@ public class FileUtil {
 	public static String learnedFile = "data/learnedfile.dne";
 	public static String trainingFile = "data/trainingFile.csv";
 	public static String testFile = "data/testFile.csv";
+
+	public static void main(String[] args) {
+		int key = 0;
+		switch (key) {
+		case 0:
+			rewriteFile(sourceFile, destinationFile);
+			break;
+		case 1:
+			divideDataset();
+			break;
+		}
+	}
 
 }
