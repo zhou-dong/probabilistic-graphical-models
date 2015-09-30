@@ -1,5 +1,9 @@
 package org.dongzhou.bayesian;
 
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
@@ -126,18 +130,83 @@ public class LearnCPTs {
 		Streamer caseFile = new Streamer(FileUtil.trainingFile);
 		net.reviseCPTsByCaseFile(caseFile, net.getNodes(), 1.0);
 		logger.info("Learn CPTs finished");
+		net.compile();
 	}
 
 	private static void showNodes() throws Exception {
 		showNode(H);
 		showNode(SL);
+		showNode(SM);
 	}
 
 	private static void showNode(Node node) throws NeticaException {
+		logger.info("--------- begin to show node --------- ");
 		logger.info(node.getStateNames());
 		float[] beliefs = node.getBeliefs();
+		StringBuffer sBeliefs = new StringBuffer();
 		for (float b : beliefs)
-			logger.info(b);
+			sBeliefs.append(b).append(" ");
+		logger.info(sBeliefs);
+		logger.info("Max state is: " + findMaxState(node));
+	}
+
+	private static String findMaxState(Node node) throws NeticaException {
+		float[] beliefs = node.getBeliefs();
+		int maxId = findMaxId(beliefs);
+		return node.getStateNamesArray()[maxId];
+	}
+
+	private static Map<Node, Integer> nodeIndex;
+
+	private static void initNodeIndex() {
+		nodeIndex = new ConcurrentHashMap<>();
+		nodeIndex.put(H, 1);
+		nodeIndex.put(HA, 2);
+		nodeIndex.put(BH, 3);
+		nodeIndex.put(BB, 4);
+		nodeIndex.put(HS, 5);
+		nodeIndex.put(KS, 6);
+		nodeIndex.put(HIS, 7);
+		nodeIndex.put(BS, 8);
+		nodeIndex.put(HAS, 9);
+		nodeIndex.put(FS, 10);
+		nodeIndex.put(WF, 11);
+		nodeIndex.put(DD, 12);
+		nodeIndex.put(DN, 13);
+		nodeIndex.put(DW, 14);
+		nodeIndex.put(SL, 15);
+		nodeIndex.put(SM, 16);
+	}
+
+	private static void testCPTs(Node node) throws NeticaException {
+		// IDnum H HA BH BB HS KS HIS BS HAS FS WF DD DN DW SL SM
+		List<String> testSet = FileUtil.loadData(FileUtil.testFile);
+		int checkSame = 0;
+		for (String oneCase : testSet) {
+			String[] states = oneCase.split(" ");
+			String testData = states[nodeIndex.get(node)];
+			String aimData = findMaxState(node);
+			logger.info("Test: [" + testData + "] " + " Aim: [" + aimData + "]");
+			if (testData.equalsIgnoreCase(aimData))
+				checkSame++;
+		}
+		float percent = checkSame * 100 / (testSet.size() - 1);
+		StringBuffer oLog = new StringBuffer();
+		oLog.append("Same time: [").append(checkSame).append("] ");
+		oLog.append("Data Size: [").append(testSet.size() - 1).append("] ");
+		oLog.append("Percentage: [").append(percent).append("%]");
+		logger.info(oLog);
+	}
+
+	private static int findMaxId(float[] beliefs) {
+		int result = 0;
+		float max = -1;
+		for (int i = 0; i < beliefs.length; i++)
+			if (beliefs[i] > max) {
+				max = beliefs[i];
+				result = i;
+			}
+		return result;
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -145,8 +214,9 @@ public class LearnCPTs {
 		addNodeToNet(net);
 		addLinkToNet();
 		learnCPTs(net);
-		net.compile();
 		showNodes();
+		initNodeIndex();
+		testCPTs(BH);
 	}
 
 }

@@ -154,7 +154,7 @@ public class FileUtil {
 		}
 	}
 
-	private static List<String> loadData(String path) {
+	public static List<String> loadData(String path) {
 		List<String> result = new ArrayList<>();
 		BufferedReader reader = null;
 		try {
