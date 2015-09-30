@@ -10,3 +10,7 @@ Course Info:
 - Time: Thursday 05:30PM - 08:15PM
 
 -Djava.library.path=/Users/dongdong/Downloads/NeticaJ_504/bin
+
+Web Address of [netica](https://www.norsys.com/netica-j.html)
+
+[Example web address] https://www.norsys.com/netica-j/examples/BuildNet.html
