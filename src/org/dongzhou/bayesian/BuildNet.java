@@ -27,6 +27,8 @@ public class BuildNet {
 
 	static Logger logger = Logger.getLogger(BuildNet.class.getName());
 
+	static Node H, HA, BH, BB, HS, KS, HIS, BS, HAS, FS, WF, DD, DN, DW, SL, SM;
+
 	private static Net createNet(String netName) throws NeticaException {
 		logger.info("Begin to create NET");
 		Node.setConstructorClass("norsys.neticaEx.aliases.Node");
@@ -37,25 +39,28 @@ public class BuildNet {
 		return net;
 	}
 
-	private static Net addNodeToNet(Net net) throws NeticaException {
+	private static void addNodeToNet(Net net) throws NeticaException {
 		logger.info("Begin to add node to net");
-		Node H = new Node("H", OverallHealth.getStates(), net);
-		Node HA = new Node("HA", HeartAttack.getStates(), net);
-		Node BH = new Node("BH", BrokenHip.getStates(), net);
-		Node BB = new Node("BB", BrokenBones.getStates(), net);
-		Node HS = new Node("HS", HospitalStay.getStates(), net);
-		Node KS = new Node("KS", KneeSurgery.getStates(), net);
-		Node HIS = new Node("HIS", HipSurgery.getStates(), net);
-		Node BS = new Node("BS", BackSurgery.getStates(), net);
-		Node HAS = new Node("HAS", HeartSurgery.getStates(), net);
-		Node FS = new Node("FS", FallIn.getStates(), net);
-		Node WF = new Node("WF", WorryFalling.getStates(), net);
-		Node DD = new Node("DD", DepressionOrHopelessness.getStates(), net);
-		Node DN = new Node("DN", NervousOrAnxious.getStates(), net);
-		Node DW = new Node("DW", CanNotStopWorrying.getStates(), net);
-		Node SL = new Node("SL", MoreThan30MinsToSleep.getStates(), net);
-		Node SM = new Node("SM", TakeSleepMedication.getStates(), net);
+		H = new Node("H", OverallHealth.getStates(), net);
+		HA = new Node("HA", HeartAttack.getStates(), net);
+		BH = new Node("BH", BrokenHip.getStates(), net);
+		BB = new Node("BB", BrokenBones.getStates(), net);
+		HS = new Node("HS", HospitalStay.getStates(), net);
+		KS = new Node("KS", KneeSurgery.getStates(), net);
+		HIS = new Node("HIS", HipSurgery.getStates(), net);
+		BS = new Node("BS", BackSurgery.getStates(), net);
+		HAS = new Node("HAS", HeartSurgery.getStates(), net);
+		FS = new Node("FS", FallIn.getStates(), net);
+		WF = new Node("WF", WorryFalling.getStates(), net);
+		DD = new Node("DD", DepressionOrHopelessness.getStates(), net);
+		DN = new Node("DN", NervousOrAnxious.getStates(), net);
+		DW = new Node("DW", CanNotStopWorrying.getStates(), net);
+		SL = new Node("SL", MoreThan30MinsToSleep.getStates(), net);
+		SM = new Node("SM", TakeSleepMedication.getStates(), net);
 		logger.info("Add node to net finished");
+	}
+
+	private static void addLinkToNet() throws NeticaException {
 		logger.info("Begin to add link to net");
 		DD.addLink(H);
 		HA.addLink(H);
@@ -94,12 +99,12 @@ public class BuildNet {
 		DD.addLink(HS);
 		SM.addLink(SL);
 		logger.info("Add link to net finished");
-		return net;
 	}
 
 	public static void main(String[] args) throws Exception {
 		Net net = createNet("HealthNet");
 		addNodeToNet(net);
+		addLinkToNet();
 		System.out.println(net.getNodes());
 	}
 
