@@ -119,8 +119,12 @@ public class FileUtil {
 		}
 	}
 
+	public static String sourceFile = "data/dataprocess.csv";
+	public static String destinationFile = "data/newdataprocess.csv";
+	public static String learnedFile = "data/learnedfile.dne";
+
 	public static void main(String[] args) {
-		rewriteFile("data/dataprocess.csv", "data/newdataprocess.csv");
+		rewriteFile(sourceFile, destinationFile);
 	}
 
 }

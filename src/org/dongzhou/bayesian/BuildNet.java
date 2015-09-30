@@ -24,6 +24,7 @@ import org.dongzhou.bayesian.Node.WorryFalling;
 import norsys.netica.Environ;
 import norsys.netica.Net;
 import norsys.netica.NeticaException;
+import norsys.netica.Streamer;
 import norsys.netica.gui.NetPanel;
 import norsys.netica.gui.NodePanel;
 import norsys.neticaEx.aliases.Node;
@@ -115,15 +116,26 @@ public class BuildNet {
 		frame.setAlwaysOnTop(false);
 		frame.setLocation(150, 50);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// frame.setSize(800, 500); // or supply getPreferredSize();
+		// frame.setSize(800, 500);
 		frame.setSize(frame.getPreferredSize());
 		frame.setVisible(true);
+	}
+
+	static void learnCPTs(Net net) throws NeticaException {
+		Streamer caseFile = new Streamer(FileUtil.destinationFile);
+		net.reviseCPTsByCaseFile(caseFile, net.getNodes(), 1.0);
 	}
 
 	public static void main(String[] args) throws Exception {
 		Net net = createNet("HealthNet");
 		addNodeToNet(net);
 		addLinkToNet();
+		learnCPTs(net);
+		net.compile();
+		float[] beliefs = H.getBeliefs();
+		for (float b : beliefs)
+			System.out.println(b);
+		// drawNet(net);
 	}
 
 }
