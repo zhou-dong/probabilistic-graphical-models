@@ -214,3 +214,39 @@ INFO main org.dongzhou.bayesian.BuildNet - Begin to add link to net
 INFO main org.dongzhou.bayesian.BuildNet - Add link to net finished
 INFO main org.dongzhou.bayesian.BuildNet - Begin to learn CPTs
 INFO main org.dongzhou.bayesian.BuildNet - Learn CPTs finished
+INFO main org.dongzhou.bayesian.BuildNet - Begin to create NET
+INFO main org.dongzhou.bayesian.BuildNet - Create Net finish
+INFO main org.dongzhou.bayesian.BuildNet - Begin to add node to net
+INFO main org.dongzhou.bayesian.BuildNet - Add node to net finished
+INFO main org.dongzhou.bayesian.BuildNet - Begin to add link to net
+INFO main org.dongzhou.bayesian.BuildNet - Add link to net finished
+INFO main org.dongzhou.bayesian.BuildNet - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.BuildNet - Learn CPTs finished
+INFO main org.dongzhou.bayesian.BuildNet - Begin to create NET
+INFO main org.dongzhou.bayesian.BuildNet - Create Net finish
+INFO main org.dongzhou.bayesian.BuildNet - Begin to add node to net
+INFO main org.dongzhou.bayesian.BuildNet - Add node to net finished
+INFO main org.dongzhou.bayesian.BuildNet - Begin to add link to net
+INFO main org.dongzhou.bayesian.BuildNet - Add link to net finished
+INFO main org.dongzhou.bayesian.BuildNet - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.BuildNet - Learn CPTs finished
+INFO main org.dongzhou.bayesian.BuildNet - Begin to create NET
+INFO main org.dongzhou.bayesian.BuildNet - Create Net finish
+INFO main org.dongzhou.bayesian.BuildNet - Begin to add node to net
+INFO main org.dongzhou.bayesian.BuildNet - Add node to net finished
+INFO main org.dongzhou.bayesian.BuildNet - Begin to add link to net
+INFO main org.dongzhou.bayesian.BuildNet - Add link to net finished
+INFO main org.dongzhou.bayesian.BuildNet - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.BuildNet - Learn CPTs finished
+INFO main org.dongzhou.bayesian.BuildNet - EXCELLENT,VERY_GOOD,GOOD,FAIR,POOR
+INFO main org.dongzhou.bayesian.BuildNet - 0.07471265
+INFO main org.dongzhou.bayesian.BuildNet - 0.25862068
+INFO main org.dongzhou.bayesian.BuildNet - 0.35440615
+INFO main org.dongzhou.bayesian.BuildNet - 0.22605364
+INFO main org.dongzhou.bayesian.BuildNet - 0.0862069
+INFO main org.dongzhou.bayesian.BuildNet - EVERY_NIGHT,MOST_NIGHTS,SOME_NIGHTS,RARELY,NEVER
+INFO main org.dongzhou.bayesian.BuildNet - 0.14592862
+INFO main org.dongzhou.bayesian.BuildNet - 0.18214563
+INFO main org.dongzhou.bayesian.BuildNet - 0.2465691
+INFO main org.dongzhou.bayesian.BuildNet - 0.24721101
+INFO main org.dongzhou.bayesian.BuildNet - 0.17814568

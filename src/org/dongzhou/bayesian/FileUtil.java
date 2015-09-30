@@ -146,6 +146,7 @@ public class FileUtil {
 			writeInNewLine(writer, datas.get(0));
 			for (int x : index)
 				writeInNewLine(writer, datas.get(x));
+			writer.flush();
 		} catch (Exception e) {
 			logger.error(e);
 		} finally {

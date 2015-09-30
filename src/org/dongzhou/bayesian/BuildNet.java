@@ -123,9 +123,21 @@ public class BuildNet {
 
 	static void learnCPTs(Net net) throws NeticaException {
 		logger.info("Begin to learn CPTs");
-		Streamer caseFile = new Streamer(FileUtil.destinationFile);
+		Streamer caseFile = new Streamer(FileUtil.trainingFile);
 		net.reviseCPTsByCaseFile(caseFile, net.getNodes(), 1.0);
 		logger.info("Learn CPTs finished");
+	}
+
+	private static void showNodes() throws Exception {
+		showNode(H);
+		showNode(SL);
+	}
+
+	private static void showNode(Node node) throws NeticaException {
+		logger.info(node.getStateNames());
+		float[] beliefs = node.getBeliefs();
+		for (float b : beliefs)
+			logger.info(b);
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -134,10 +146,7 @@ public class BuildNet {
 		addLinkToNet();
 		learnCPTs(net);
 		net.compile();
-		System.out.println(SL.getStateNames());
-		float[] beliefs = SL.getBeliefs();
-		for (float b : beliefs)
-			System.out.print(b + " ");
+		showNodes();
 	}
 
 }
