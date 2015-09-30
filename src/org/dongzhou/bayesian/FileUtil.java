@@ -7,6 +7,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import org.apache.log4j.Logger;
 import org.dongzhou.bayesian.Node.BackSurgery;
@@ -119,12 +122,78 @@ public class FileUtil {
 		}
 	}
 
+	public static void divideDataset() {
+		List<String> datas = loadData(destinationFile);
+		createTrainingFile(datas);
+		createTestFile(datas);
+	}
+
+	public static void createTrainingFile(List<String> datas) {
+		createSubsetFile(datas, trainingFile, getTrainingSize(datas.size()));
+	}
+
+	public static void createTestFile(List<String> datas) {
+		createSubsetFile(datas, testFile, getTestSize(datas.size()));
+	}
+
+	public static void createSubsetFile(List<String> datas, String subsetFile, int subsetSize) {
+		int[] index = new int[subsetSize];
+		for (int i = 0; i < subsetSize; i++)
+			index[i] = getRandomNumber(datas.size());
+		BufferedWriter writer = null;
+		try {
+			writer = new BufferedWriter(new FileWriter(new File(subsetFile)));
+			writeInNewLine(writer, datas.get(0));
+			for (int x : index)
+				writeInNewLine(writer, datas.get(x));
+		} catch (Exception e) {
+			logger.error(e);
+		} finally {
+			close(writer);
+		}
+	}
+
+	private static List<String> loadData(String path) {
+		List<String> result = new ArrayList<>();
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new FileReader(new File(path)));
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.add(line);
+			}
+		} catch (Exception e) {
+			logger.error(e);
+		} finally {
+			close(reader);
+		}
+		return result;
+	}
+
+	public static void main(String[] args) {
+		divideDataset();
+	}
+
+	static Random randomGenerator = new Random();
+
+	private static int getRandomNumber(int dataSize) {
+		return randomGenerator.nextInt(dataSize - 1) + 1;
+	}
+
+	private static int getTestSize(int dataSize) {
+		Double result = (dataSize - 1) * 0.2;
+		return result.intValue();
+	}
+
+	private static int getTrainingSize(int dataSize) {
+		Double result = (dataSize - 1) * 0.8;
+		return result.intValue();
+	}
+
 	public static String sourceFile = "data/dataprocess.csv";
 	public static String destinationFile = "data/newdataprocess.csv";
 	public static String learnedFile = "data/learnedfile.dne";
-
-	public static void main(String[] args) {
-		rewriteFile(sourceFile, destinationFile);
-	}
+	public static String trainingFile = "data/trainingFile.csv";
+	public static String testFile = "data/testFile.csv";
 
 }
