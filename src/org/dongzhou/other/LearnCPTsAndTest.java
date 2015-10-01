@@ -213,6 +213,7 @@ public class LearnCPTsAndTest {
 	}
 
 	public static void main(String[] args) throws NeticaException {
+		writerFile();
 		buildNet();
 	}
 
