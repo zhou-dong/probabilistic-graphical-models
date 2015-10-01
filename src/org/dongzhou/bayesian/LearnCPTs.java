@@ -134,7 +134,7 @@ public class LearnCPTs {
 	}
 
 	private static void showNode(Node node) throws NeticaException {
-		logger.info("--------- begin to show node --------- ");
+		logger.info("begin to show node");
 		logger.info(node.getStateNames());
 		float[] beliefs = node.getBeliefs();
 		StringBuffer sBeliefs = new StringBuffer();
