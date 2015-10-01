@@ -447,7 +447,8 @@ public class Node {
 
 	public static enum NervousOrAnxious {
 
-		YES(1, "YES"), NO(2, "NO");
+		NOT_AT_ALL(1, "NOT_AT_ALL"), SEVERAL_DAYS(2, "SEVERAL_DAYS"), MORE_THAN_HALF_DAYS(3,
+				"MORE_THAN_HALF_DAYS"), NEARLY_EVERY_DAY(4, "NEARLY_EVERY_DAY");
 
 		private static final Map<Integer, String> map;
 
@@ -484,7 +485,8 @@ public class Node {
 
 	public static enum CanNotStopWorrying {
 
-		YES(1, "YES"), NO(2, "NO");
+		NOT_AT_ALL(1, "NOT_AT_ALL"), SEVERAL_DAYS(2, "SEVERAL_DAYS"), MORE_THAN_HALF_DAYS(3,
+				"MORE_THAN_HALF_DAYS"), NEARLY_EVERY_DAY(4, "NEARLY_EVERY_DAY");
 
 		private static final Map<Integer, String> map;
 

@@ -222,9 +222,9 @@ public class LearnCPTs {
 		addNodeToNet(net);
 		addLinkToNet();
 		learnCPTs(net);
-		showNode(BB);
+		showNode(FS);
 		initNodeIndex();
-		testCPTs(BB);
+		testCPTs(FS);
 	}
 
 }
