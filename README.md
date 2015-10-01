@@ -14,3 +14,6 @@ Course Info:
 Web Address of [netica](https://www.norsys.com/netica-j.html)
 
 [Example web address](https://www.norsys.com/netica-j/examples/BuildNet.html)
+
+
+<img src="https://d1b10bmlvqabco.cloudfront.net/attach/idl50807mpy3uf/ieq7sf7erk41x7/ieq7sg92ttd3io/MobilePhotoUpload.jpeg" alt="net for bayesian net wrok">
