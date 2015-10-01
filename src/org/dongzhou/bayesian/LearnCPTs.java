@@ -172,7 +172,6 @@ public class LearnCPTs {
 		nodeIndex.put(SM, 16);
 	}
 
-	// IDnum H HA BH BB HS KS HIS BS HAS FS WF DD DN DW SL SM
 	private static void testCPTs(Node node) throws NeticaException {
 		List<String> testSet = FileUtil.loadData(FileUtil.testFile);
 		int checkSame = 0;
