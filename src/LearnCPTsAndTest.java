@@ -93,45 +93,52 @@ public class LearnCPTsAndTest {
 		DW = new Node("DW", "a1,a2,a3,a4", net);
 		SL = new Node("SL", "a1,a2,a3,a4,a5", net);
 		SM = new Node("SM", "a1,a2,a3,a4,a5", net);
-		BH.addLink(FS);
-		KS.addLink(FS);
-		KS.addLink(BB);
-		BB.addLink(FS);
+		DD.addLink(H);
+		HA.addLink(H);
+		BB.addLink(H);
+		BH.addLink(H);
+		HS.addLink(H);
+		WF.addLink(FS);
 		BS.addLink(FS);
 		BS.addLink(BB);
-		WF.addLink(FS);
-		HIS.addLink(BH);
+		BB.addLink(FS);
+		KS.addLink(FS);
+		BH.addLink(FS);
 		HS.addLink(KS);
-		HS.addLink(BH);
 		HS.addLink(BS);
-		HS.addLink(HAS);
-		DW.addLink(BB);
-		DW.addLink(BH);
+		HS.addLink(HIS);
+		HIS.addLink(BH);
+		HAS.addLink(HS);
+		HA.addLink(HAS);
 		DN.addLink(BB);
+		DN.addLink(WF);
 		DN.addLink(BH);
-		DD.addLink(BB);
-		DD.addLink(BH);
-		DD.addLink(HA);
-		SL.addLink(HIS);
+		DN.addLink(DD);
+		DN.addLink(HA);
 		SL.addLink(DW);
 		SL.addLink(DN);
 		SL.addLink(DD);
 		SL.addLink(HS);
-		SL.addLink(HAS);
+		SL.addLink(HIS);
+		DW.addLink(BB);
+		DW.addLink(BH);
+		DW.addLink(HA);
+		DW.addLink(DN);
+		DD.addLink(BB);
+		DD.addLink(BH);
+		DD.addLink(HA);
+		DD.addLink(HS);
 		SM.addLink(SL);
-		HAS.addLink(HA);
-		H.addLink(DW);
-		H.addLink(BB);
-		H.addLink(KS);
 		Streamer caseFile = new Streamer(rewriteFile);
 		net.reviseCPTsByCaseFile(caseFile, net.getNodes(), 1.0);
 		net.compile();
-
 		List<String> wholeSet = readFile(rewriteFile);
 		List<String> testSet = new ArrayList<>();
 		Random random = new Random();
-		for (int i = 0; i < 2000; i++)
-			testSet.add(wholeSet.get(random.nextInt(wholeSet.size() - 1) + 1));
+		for (int i = 0; i < 1000; i++) {
+			int randomNum = random.nextInt(wholeSet.size() - 1) + 1;
+			testSet.add(wholeSet.get(randomNum));
+		}
 		int sameNumber = 0;
 		for (String oCase : testSet) {
 			String[] states = oCase.split(" ");
@@ -144,22 +151,25 @@ public class LearnCPTsAndTest {
 			HIS.finding().enterState(states[6]);
 			BS.finding().enterState(states[7]);
 			HAS.finding().enterState(states[8]);
-			FS.finding().enterState(states[9]);
+			// FS.finding().enterState(states[9]);
 			WF.finding().enterState(states[10]);
 			DD.finding().enterState(states[11]);
 			DN.finding().enterState(states[12]);
 			DW.finding().enterState(states[13]);
 			SL.finding().enterState(states[14]);
-			// SM.finding().enterState(states[15]);
-
-			String maxState = findMaxState(SM);
-			String observeState = states[0];
-
+			SM.finding().enterState(states[15]);
+			String maxState = findMaxState(FS);
+			String observeState = states[9];
 			if (maxState.equalsIgnoreCase(observeState))
 				sameNumber++;
 			clearAll();
-			System.out.println(maxState + " " + observeState);
+			// System.out.println(maxState + " " + observeState);
 		}
+		System.out.println(FS.getStateNames());
+		float[] beliefs = FS.getBeliefs();
+		for (float belief : beliefs)
+			System.out.print(belief + " ");
+		System.out.println();
 		System.out.println(sameNumber * 100 / testSet.size() + "%");
 		net.finalize();
 	}
