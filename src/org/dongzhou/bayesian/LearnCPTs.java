@@ -184,15 +184,14 @@ public class LearnCPTs {
 				if (oNode.equals(node))
 					continue;
 				String oState = states[nodeIndex.get(oNode)];
-				if (oState.equals("null"))
-					continue;
 				oNode.finding().enterState(oState);
 			}
 			String aimData = findMaxState(node);
 			String testData = states[nodeIndex.get(node)];
 			if (testData.equalsIgnoreCase(aimData))
 				checkSame++;
-			logger.info("Test: [" + testData + "] " + " Aim: [" + aimData + "]");
+			// logger.info("Test: [" + testData + "] " + " Aim: [" + aimData +
+			// "]");
 			for (Map.Entry<Node, Integer> entry : nodeIndex.entrySet()) {
 				Node oNode = entry.getKey();
 				oNode.finding().clear();
@@ -218,13 +217,14 @@ public class LearnCPTs {
 	}
 
 	public static void main(String[] args) throws Exception {
+		FileUtil.divideDataset();
 		Net net = createNet("SleepingCPTs");
 		addNodeToNet(net);
 		addLinkToNet();
 		learnCPTs(net);
-		showNode(FS);
+		showNode(DD);
 		initNodeIndex();
-		testCPTs(FS);
+		testCPTs(DD);
 	}
 
 }

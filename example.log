@@ -1183,3 +1183,120 @@ INFO main org.dongzhou.bayesian.LearnCPTs - Test: [NO]  Aim: [NO]
 INFO main org.dongzhou.bayesian.LearnCPTs - Test: [YES]  Aim: [NO]
 INFO main org.dongzhou.bayesian.LearnCPTs - Test: [NO]  Aim: [NO]
 INFO main org.dongzhou.bayesian.LearnCPTs - Same time: [1028] Data Size: [1172] Percentage: [87.0%]
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to create NET
+INFO main org.dongzhou.bayesian.LearnCPTs - Create Net finish
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add node to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add node to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add link to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add link to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.LearnCPTs - Learn CPTs finished
+INFO main org.dongzhou.bayesian.LearnCPTs - begin to show node
+INFO main org.dongzhou.bayesian.LearnCPTs - YES,NO
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.12132196 0.878678 
+INFO main org.dongzhou.bayesian.LearnCPTs - Max state is: NO
+INFO main org.dongzhou.bayesian.LearnCPTs - Same time: [1027] Data Size: [1172] Percentage: [87.0%]
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to create NET
+INFO main org.dongzhou.bayesian.LearnCPTs - Create Net finish
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add node to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add node to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add link to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add link to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.LearnCPTs - Learn CPTs finished
+INFO main org.dongzhou.bayesian.LearnCPTs - begin to show node
+INFO main org.dongzhou.bayesian.LearnCPTs - YES,NO
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.12835822 0.8716418 
+INFO main org.dongzhou.bayesian.LearnCPTs - Max state is: NO
+INFO main org.dongzhou.bayesian.LearnCPTs - Same time: [1034] Data Size: [1172] Percentage: [88.0%]
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to create NET
+INFO main org.dongzhou.bayesian.LearnCPTs - Create Net finish
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add node to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add node to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add link to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add link to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.LearnCPTs - Learn CPTs finished
+INFO main org.dongzhou.bayesian.LearnCPTs - begin to show node
+INFO main org.dongzhou.bayesian.LearnCPTs - YES,NO
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.1140725 0.8859275 
+INFO main org.dongzhou.bayesian.LearnCPTs - Max state is: NO
+INFO main org.dongzhou.bayesian.LearnCPTs - Same time: [1036] Data Size: [1172] Percentage: [88.0%]
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to create NET
+INFO main org.dongzhou.bayesian.LearnCPTs - Create Net finish
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add node to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add node to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add link to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add link to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.LearnCPTs - Learn CPTs finished
+INFO main org.dongzhou.bayesian.LearnCPTs - begin to show node
+INFO main org.dongzhou.bayesian.LearnCPTs - YES,NO
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.1251599 0.8748401 
+INFO main org.dongzhou.bayesian.LearnCPTs - Max state is: NO
+INFO main org.dongzhou.bayesian.LearnCPTs - Same time: [1022] Data Size: [1172] Percentage: [87.0%]
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to create NET
+INFO main org.dongzhou.bayesian.LearnCPTs - Create Net finish
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add node to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add node to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add link to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add link to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.LearnCPTs - Learn CPTs finished
+INFO main org.dongzhou.bayesian.LearnCPTs - begin to show node
+INFO main org.dongzhou.bayesian.LearnCPTs - YES,NO
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.12729211 0.8727079 
+INFO main org.dongzhou.bayesian.LearnCPTs - Max state is: NO
+INFO main org.dongzhou.bayesian.LearnCPTs - Same time: [1023] Data Size: [1172] Percentage: [87.0%]
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to create NET
+INFO main org.dongzhou.bayesian.LearnCPTs - Create Net finish
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add node to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add node to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add link to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add link to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.LearnCPTs - Learn CPTs finished
+INFO main org.dongzhou.bayesian.LearnCPTs - begin to show node
+INFO main org.dongzhou.bayesian.LearnCPTs - YES,NO
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.12196162 0.8780384 
+INFO main org.dongzhou.bayesian.LearnCPTs - Max state is: NO
+INFO main org.dongzhou.bayesian.LearnCPTs - Same time: [1052] Data Size: [1172] Percentage: [89.0%]
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to create NET
+INFO main org.dongzhou.bayesian.LearnCPTs - Create Net finish
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add node to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add node to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add link to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add link to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.LearnCPTs - Learn CPTs finished
+INFO main org.dongzhou.bayesian.LearnCPTs - begin to show node
+INFO main org.dongzhou.bayesian.LearnCPTs - NOT_AT_ALL,SEVERAL_DAYS,MORE_THAN_HALF_DAYS,NEARLY_EVERY_DAY
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.6950467 0.22130868 0.044480845 0.03916373 
+INFO main org.dongzhou.bayesian.LearnCPTs - Max state is: NOT_AT_ALL
+INFO main org.dongzhou.bayesian.LearnCPTs - Same time: [895] Data Size: [1172] Percentage: [76.0%]
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to create NET
+INFO main org.dongzhou.bayesian.LearnCPTs - Create Net finish
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add node to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add node to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add link to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add link to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.LearnCPTs - Learn CPTs finished
+INFO main org.dongzhou.bayesian.LearnCPTs - begin to show node
+INFO main org.dongzhou.bayesian.LearnCPTs - NOT_AT_ALL,SEVERAL_DAYS,MORE_THAN_HALF_DAYS,NEARLY_EVERY_DAY
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.69632936 0.21449235 0.051886946 0.03729137 
+INFO main org.dongzhou.bayesian.LearnCPTs - Max state is: NOT_AT_ALL
+INFO main org.dongzhou.bayesian.LearnCPTs - Same time: [882] Data Size: [1172] Percentage: [75.0%]
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to create NET
+INFO main org.dongzhou.bayesian.LearnCPTs - Create Net finish
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add node to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add node to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to add link to net
+INFO main org.dongzhou.bayesian.LearnCPTs - Add link to net finished
+INFO main org.dongzhou.bayesian.LearnCPTs - Begin to learn CPTs
+INFO main org.dongzhou.bayesian.LearnCPTs - Learn CPTs finished
+INFO main org.dongzhou.bayesian.LearnCPTs - begin to show node
+INFO main org.dongzhou.bayesian.LearnCPTs - NOT_AT_ALL,SEVERAL_DAYS,MORE_THAN_HALF_DAYS,NEARLY_EVERY_DAY
+INFO main org.dongzhou.bayesian.LearnCPTs - 0.69124746 0.2126538 0.054261778 0.04183697 
+INFO main org.dongzhou.bayesian.LearnCPTs - Max state is: NOT_AT_ALL
+INFO main org.dongzhou.bayesian.LearnCPTs - Same time: [871] Data Size: [1172] Percentage: [74.0%]
