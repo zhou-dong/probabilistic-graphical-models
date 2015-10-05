@@ -9,7 +9,7 @@ public class Human {
 	}
 
 	private String id;
-	private double birthDay;
+	private long birthDay;
 	private Gender gender;
 
 	private String prefixName;
@@ -23,11 +23,11 @@ public class Human {
 	private int currentAddressIndex = 0;
 	private List<String> address;
 
-	public double getBirthDay() {
+	public long getBirthDay() {
 		return birthDay;
 	}
 
-	public void setBirthDay(double birthDay) {
+	public void setBirthDay(long birthDay) {
 		this.birthDay = birthDay;
 	}
 

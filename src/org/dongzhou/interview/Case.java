@@ -6,7 +6,7 @@ public class Case {
 	private String patientId;
 	private String description;
 
-	private double reportTime;
+	private long reportTime;
 
 	public String getReporterId() {
 		return reporterId;
@@ -32,11 +32,11 @@ public class Case {
 		this.description = description;
 	}
 
-	public double getReportTime() {
+	public long getReportTime() {
 		return reportTime;
 	}
 
-	public void setReportTime(double reportTime) {
+	public void setReportTime(long reportTime) {
 		this.reportTime = reportTime;
 	}
 

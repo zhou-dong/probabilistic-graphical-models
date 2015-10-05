@@ -4,27 +4,27 @@ import java.util.concurrent.TimeUnit;
 
 public class Medication {
 
-	private double startTime;
-	private double endTime;
+	private long startTime;
+	private long endTime;
 
 	private String frequent;
 	private TimeUnit frequentType;
 	private String patientId;
 	private String doctocId;
 
-	public double getStartTime() {
+	public long getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(double startTime) {
+	public void setStartTime(long startTime) {
 		this.startTime = startTime;
 	}
 
-	public double getEndTime() {
+	public long getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(double endTime) {
+	public void setEndTime(long endTime) {
 		this.endTime = endTime;
 	}
 
