@@ -1,26 +1,51 @@
 package org.dongzhou.interview;
 
-import java.util.List;
+public class Patient extends Human {
 
-public class Patient implements Human {
+	public enum Temperature {
 
-	public enum Gender {
-		MALE, FAMALE, UNKOWN;
+		HIGH, NORMAL, LOW;
+
+		private static int upperBoundary;
+		private static int lowerBoundary;
+
+		public static Temperature getTemperature(int temp) {
+			if (temp > upperBoundary)
+				return HIGH;
+			else if (temp < lowerBoundary)
+				return LOW;
+			else
+				return NORMAL;
+		}
 	}
 
-	private String id;
-	private Gender gender;
+	private int temp;
 
-	private int defaultPhoneNumberIndex;
-	private List<String> phones;
-
-	private int currentAddressIndex;
-	private List<String> address;
-
+	private Temperature tempCheck;
 	private int lastCheckTime;
 
-	@Override
-	public String getId() {
-		return id;
+	public int getTemp() {
+		return temp;
 	}
+
+	public void setTemp(int temp) {
+		this.temp = temp;
+	}
+
+	public Temperature getTempCheck() {
+		return tempCheck;
+	}
+
+	public void setTempCheck(Temperature tempCheck) {
+		this.tempCheck = tempCheck;
+	}
+
+	public int getLastCheckTime() {
+		return lastCheckTime;
+	}
+
+	public void setLastCheckTime(int lastCheckTime) {
+		this.lastCheckTime = lastCheckTime;
+	}
+
 }
