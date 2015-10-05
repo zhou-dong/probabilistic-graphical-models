@@ -7,10 +7,20 @@ public class Medication {
 	private long startTime;
 	private long endTime;
 
-	private String frequent;
+	private int frequent;
 	private TimeUnit frequentType;
-	private String patientId;
-	private String doctocId;
+	private Patient patient;
+	private Human doctoc;
+
+	private int dosage;
+
+	public int getDosage() {
+		return dosage;
+	}
+
+	public void setDosage(int dosage) {
+		this.dosage = dosage;
+	}
 
 	public long getStartTime() {
 		return startTime;
@@ -28,11 +38,11 @@ public class Medication {
 		this.endTime = endTime;
 	}
 
-	public String getFrequent() {
+	public int getFrequent() {
 		return frequent;
 	}
 
-	public void setFrequent(String frequent) {
+	public void setFrequent(int frequent) {
 		this.frequent = frequent;
 	}
 
@@ -44,20 +54,20 @@ public class Medication {
 		this.frequentType = frequentType;
 	}
 
-	public String getPatientId() {
-		return patientId;
+	public Patient getPatient() {
+		return patient;
 	}
 
-	public void setPatientId(String patientId) {
-		this.patientId = patientId;
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 
-	public String getDoctocId() {
-		return doctocId;
+	public Human getDoctoc() {
+		return doctoc;
 	}
 
-	public void setDoctocId(String doctocId) {
-		this.doctocId = doctocId;
+	public void setDoctoc(Human doctoc) {
+		this.doctoc = doctoc;
 	}
 
 }

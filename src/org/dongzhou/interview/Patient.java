@@ -1,27 +1,13 @@
 package org.dongzhou.interview;
 
+import java.util.List;
+
 public class Patient extends Human {
-
-	public enum Temperature {
-
-		HIGH, NORMAL, LOW;
-
-		private static int upperBoundary;
-		private static int lowerBoundary;
-
-		public static Temperature getTemperature(int temp) {
-			if (temp > upperBoundary)
-				return HIGH;
-			else if (temp < lowerBoundary)
-				return LOW;
-			else
-				return NORMAL;
-		}
-	}
 
 	private int temp;
 
-	private Temperature tempCheck;
+	private List<Case> cases;
+
 	private int lastCheckTime;
 
 	public int getTemp() {
@@ -32,20 +18,20 @@ public class Patient extends Human {
 		this.temp = temp;
 	}
 
-	public Temperature getTempCheck() {
-		return tempCheck;
-	}
-
-	public void setTempCheck(Temperature tempCheck) {
-		this.tempCheck = tempCheck;
-	}
-
 	public int getLastCheckTime() {
 		return lastCheckTime;
 	}
 
 	public void setLastCheckTime(int lastCheckTime) {
 		this.lastCheckTime = lastCheckTime;
+	}
+
+	public List<Case> getCases() {
+		return cases;
+	}
+
+	public void setCases(List<Case> cases) {
+		this.cases = cases;
 	}
 
 }

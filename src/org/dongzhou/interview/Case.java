@@ -2,26 +2,47 @@ package org.dongzhou.interview;
 
 public class Case {
 
-	private String reporterId;
-	private String patientId;
+	public enum Temperature {
+
+		FEVER, NORMAL;
+
+		private static int upperBoundary;
+
+		public static boolean isFever(int temp) {
+			if (getTemperature(temp) == FEVER)
+				return true;
+			else
+				return false;
+		}
+
+		public static Temperature getTemperature(int temp) {
+			if (temp > upperBoundary)
+				return FEVER;
+			else
+				return NORMAL;
+		}
+	}
+
+	private Human reporter;
+	private Patient patient;
 	private String description;
+	private long reportTime = System.currentTimeMillis();
+	private int temperature;
 
-	private long reportTime;
-
-	public String getReporterId() {
-		return reporterId;
+	public Human getReporter() {
+		return reporter;
 	}
 
-	public void setReporterId(String reporterId) {
-		this.reporterId = reporterId;
+	public void setReporter(Human reporter) {
+		this.reporter = reporter;
 	}
 
-	public String getPatientId() {
-		return patientId;
+	public Patient getPatient() {
+		return patient;
 	}
 
-	public void setPatientId(String patientId) {
-		this.patientId = patientId;
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 
 	public String getDescription() {
@@ -38,6 +59,14 @@ public class Case {
 
 	public void setReportTime(long reportTime) {
 		this.reportTime = reportTime;
+	}
+
+	public int getTemperature() {
+		return temperature;
+	}
+
+	public void setTemperature(int temperature) {
+		this.temperature = temperature;
 	}
 
 }

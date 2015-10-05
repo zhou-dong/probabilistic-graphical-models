@@ -1,5 +1,6 @@
 package org.dongzhou.interview;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Human {
@@ -18,10 +19,10 @@ public class Human {
 	private String lastname;
 
 	private int defaultPhoneNumberIndex = 0;
-	private List<String> phones;
+	private List<String> phones = new LinkedList<String>();
 
 	private int currentAddressIndex = 0;
-	private List<String> address;
+	private List<String> addresses = new LinkedList<>();
 
 	public long getBirthDay() {
 		return birthDay;
@@ -104,11 +105,15 @@ public class Human {
 	}
 
 	public List<String> getAddress() {
-		return address;
+		return addresses;
 	}
 
-	public void setAddress(List<String> address) {
-		this.address = address;
+	public void setAddress(List<String> addresses) {
+		this.addresses = addresses;
+	}
+
+	public void addAddress(String address) {
+		this.addresses.add(address);
 	}
 
 }
