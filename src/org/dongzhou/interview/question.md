@@ -1,9 +1,0 @@
-1.  Design a class ( give different methods and variables that will be used ) that will provide information about the allergy of a patient that is , who provide information about the allergy of a patient . Ex who reported the allergy(patient/doctor/relative)  different symptoms of the allergy that are detected , severity , methd that returns when was that allergy detected in that patient along with information aboout disease if it is not allergy and can be updated easily. How would you record the time of the disease report using java.
-
-
-2. Design a class which stores demographic information of a patients visiting the hospital , a class which stores  demographiic information of a person like name, address, phone number, male/female. What if the person has any prefix to the name, multiple phone numbers/addresses, how will you handle dob in case of multiple locations(If a person is both at 12 PM in USA on a date, then that date is different from date in India), how will you handle the validations of these fields when the user enters the values  
-
-3. Design a Medication class which includes when to begin taking the medication, when to end, proper dosage, and frequency. Write a function to generate a schedule of when a patient needs to take their medication. How would you adjust your program to allow for medication which can be taken as needed.
-What information would you need to gather from a patient and which data types would you use and why? Which information would need to be adjusted for the program to be used internationally
-
-4. Patient demographic class where patient details are stored in the class like name, address, phone number etc. Try using enums   Design a temperature class for nurses to store patient temperature and the method of taking the temperature. How would you handle different units of temperature? Write a function to determine if a patient has a fever.
