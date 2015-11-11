@@ -49,20 +49,21 @@ public class Spider {
 
 		@Override
 		public void run() {
-			if (explored.containsKey(url))
-				return;
-			try {
+			if (explored.containsKey(url) == false)
 				getPageContent(url);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 
 	}
 
-	private static void getPageContent(String url) throws IOException {
+	private static void getPageContent(String url) {
 		System.out.println("get content from: " + url);
-		Document document = Jsoup.connect(url).get();
+		Document document = null;
+		try {
+			document = Jsoup.connect(url).get();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		}
 		// System.out.println(document);
 		Elements links = document.select("a[href]");
 		for (Element link : links) {
