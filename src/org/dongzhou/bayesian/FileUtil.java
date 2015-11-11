@@ -31,6 +31,15 @@ import org.dongzhou.bayesian.Node.WorryFalling;
 
 public class FileUtil {
 
+	int[] test = { 1, 2, 3 };
+
+	enum Test {
+		T, R
+	};
+
+	public void test() {
+	}
+
 	static Logger logger = Logger.getLogger(FileUtil.class.getName());
 
 	public static void rewriteFile(String sourceFile, String destinationFile) {
