@@ -17,7 +17,7 @@ public class Spider {
 
 	private static boolean isRun = false;
 	private static ExecutorService executors = null;
-	private static Queue<String> unexplored = new ArrayBlockingQueue<>(100);
+	private static Queue<String> unexplored = new ArrayBlockingQueue<>(1500);
 	private static Map<String, Integer> explored = new ConcurrentHashMap<>();
 
 	public static ExecutorService createThreadPool(int size) {
@@ -63,7 +63,7 @@ public class Spider {
 	private static void getPageContent(String url) throws IOException {
 		System.out.println("get content from: " + url);
 		Document document = Jsoup.connect(url).get();
-		System.out.println(document);
+		// System.out.println(document);
 		Elements links = document.select("a[href]");
 		for (Element link : links) {
 			String href = link.attr("abs:href");
