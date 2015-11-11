@@ -74,7 +74,7 @@ public class Spider {
 		}
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		String mainPage = "http://www.troy.edu/";
 		getPageContent(mainPage);
 		executors = createThreadPool(10);
