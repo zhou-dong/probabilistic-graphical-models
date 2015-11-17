@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;
 import org.apache.log4j.Logger;
 
@@ -15,22 +14,12 @@ public class ApiUtil {
 
 	private static final String KEY = "B63vb_55nMqMqfDXcvoNJQqYcavyMlGnClMPRLeT";
 
-	public static final String ANALYTIC_DATA_API = "https://www.rescuetime.com/anapi/data";
-	public static final String DAILY_SUMMARY_API = "https://www.rescuetime.com/anapi/daily_summary_feed";
-
-	// https://www.rescuetime.com/anapi/setup/documentation#daily-summary-feed-reference
-	public static HttpUriRequest createAnalyticDataApiRequest() {
-		return createRequest(createURI(ANALYTIC_DATA_API));
+	public static RequestBuilder createRequestBuilder(String uri) {
+		return createRequestBuilder(createURI(uri));
 	}
 
-	// https://www.rescuetime.com/anapi/setup/documentation#daily-summary-feed-reference
-	public static HttpUriRequest createDailySummaryFeedRequest() {
-		return createRequest(createURI(DAILY_SUMMARY_API));
-	}
-
-	private static HttpUriRequest createRequest(URI uri) {
-		logger.info("build request with uri: " + uri);
-		return RequestBuilder.get().setUri(uri).addParameter("key", KEY).build();
+	private static RequestBuilder createRequestBuilder(URI uri) {
+		return RequestBuilder.get().setUri(uri).addParameter("key", KEY);
 	}
 
 	private static URI createURI(String uri) {
