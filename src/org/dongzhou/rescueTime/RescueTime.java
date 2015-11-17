@@ -26,16 +26,20 @@ public class RescueTime {
 	 * @param type:
 	 *            csv or json
 	 */
-	public static String getAnalyticData(String endDate, String type)
+	public static String getAnalyticData(String begin, String end, String type)
 			throws ClientProtocolException, IOException {
 		RequestBuilder requestBuilder = ApiUtil.createRequestBuilder(ANALYTIC_DATA_API);
 		requestBuilder.addParameter("perspective", "rank");
 		requestBuilder.addParameter("restrict_kind", "overview");
-		requestBuilder.addParameter("restrict_begin", "2015-11-12");
-		requestBuilder.addParameter("restrict_end", endDate);
+		requestBuilder.addParameter("restrict_begin", begin);
+		requestBuilder.addParameter("restrict_end", end);
 		requestBuilder.addParameter("format", type);
 		HttpUriRequest request = requestBuilder.build();
 		return getContent(request);
+	}
+
+	public static String getAnalyticData(String end) throws ClientProtocolException, IOException {
+		return getAnalyticData("2015-11-12", end, "csv");
 	}
 
 	public static DBObject getDailySummary() throws IOException {
@@ -61,7 +65,7 @@ public class RescueTime {
 	}
 
 	public final static void main(String[] args) throws Exception {
-		String analyze = getAnalyticData("2015-11-17", "csv");
+		String analyze = getAnalyticData("2015-11-17");
 		logger.info(analyze);
 		DBObject dailySummary = getDailySummary();
 		logger.info(dailySummary);
