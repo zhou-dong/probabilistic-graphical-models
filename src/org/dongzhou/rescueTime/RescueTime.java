@@ -1,6 +1,7 @@
 package org.dongzhou.rescueTime;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
@@ -23,6 +24,12 @@ public class RescueTime {
 	public static final String DAILY_SUMMARY_API = "https://www.rescuetime.com/anapi/daily_summary_feed";
 
 	/**
+	 * @param begin:
+	 *            format: 2015-11-12
+	 * 
+	 * @param end:
+	 *            format: 2015-11-17
+	 * 
 	 * @param type:
 	 *            csv or json
 	 */
@@ -38,8 +45,10 @@ public class RescueTime {
 		return getContent(request);
 	}
 
-	public static String getAnalyticData(String end) throws ClientProtocolException, IOException {
-		return getAnalyticData("2015-11-12", end, "csv");
+	public static String getAnalyticData() throws ClientProtocolException, IOException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String today = sdf.format(System.currentTimeMillis());
+		return getAnalyticData("2015-11-12", today, "csv");
 	}
 
 	public static DBObject getDailySummary() throws IOException {
@@ -50,6 +59,7 @@ public class RescueTime {
 
 	private static String getContent(HttpUriRequest request)
 			throws ClientProtocolException, IOException {
+		logger.info(request);
 		CloseableHttpClient httpclient = null;
 		CloseableHttpResponse response = null;
 		try {
@@ -65,7 +75,7 @@ public class RescueTime {
 	}
 
 	public final static void main(String[] args) throws Exception {
-		String analyze = getAnalyticData("2015-11-17");
+		String analyze = getAnalyticData();
 		logger.info(analyze);
 		DBObject dailySummary = getDailySummary();
 		logger.info(dailySummary);
