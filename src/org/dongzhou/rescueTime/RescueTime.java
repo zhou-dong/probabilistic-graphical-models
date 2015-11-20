@@ -79,10 +79,21 @@ public class RescueTime {
 		}
 	}
 
-	public static void createDays(BasicDBList dailySummary) {
+	public static void setDays(BasicDBList dailySummary) {
 		for (Object object : dailySummary) {
 			DBObject day = (DBObject) object;
 			days.add(new Day(day));
+		}
+	}
+
+	public static List<Day> getDays() {
+		try {
+			BasicDBList dailySummary = getDailySummary();
+			setDays(dailySummary);
+			return days;
+		} catch (IOException e) {
+			logger.error(e);
+			return null;
 		}
 	}
 
@@ -91,7 +102,7 @@ public class RescueTime {
 		logger.info(analyze);
 		BasicDBList dailySummary = getDailySummary();
 		logger.info(dailySummary);
-		createDays(dailySummary);
+		setDays(dailySummary);
 		logger.info("Load days finish");
 		for (Day day : days) {
 			System.out.println(day.getDate() + " " + day.getWeek());

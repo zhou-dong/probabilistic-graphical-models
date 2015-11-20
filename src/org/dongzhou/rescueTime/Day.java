@@ -17,6 +17,11 @@ public class Day {
 
 	private DBObject day;
 
+	@Override
+	public String toString() {
+		return day.toString();
+	}
+
 	public Day(DBObject day) {
 		this.day = day;
 	}
