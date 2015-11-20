@@ -25,20 +25,32 @@ public class Day {
 		return day;
 	}
 
-	public Double getProductiveHours() {
-		return (Double) day.get("all_productive_hours");
+	public double getProductivePercent() {
+		return (double) day.get("all_productive_percentage");
 	}
 
-	public Double getDistractingHours() {
-		return (Double) day.get("all_distracting_hours");
+	public double getDistractingPercent() {
+		return (double) day.get("all_distracting_percentage");
 	}
 
-	public Double getNeutralHours() {
-		return (Double) day.get("neutral_hours");
+	public double getNeutralPercent() {
+		return (double) day.get("neutral_percentage");
 	}
 
-	public Double getTotalHours() {
-		return (Double) day.get("total_hours");
+	public double getProductiveHours() {
+		return (double) day.get("all_productive_hours");
+	}
+
+	public double getDistractingHours() {
+		return (double) day.get("all_distracting_hours");
+	}
+
+	public double getNeutralHours() {
+		return (double) day.get("neutral_hours");
+	}
+
+	public double getTotalHours() {
+		return (double) day.get("total_hours");
 	}
 
 	public String getDate() {

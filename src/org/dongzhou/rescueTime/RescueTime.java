@@ -79,24 +79,28 @@ public class RescueTime {
 		}
 	}
 
-	public final static void main(String[] args) throws Exception {
-		String analyze = getAnalyticData();
-		logger.info(analyze);
-		BasicDBList dailys = getDailySummary();
-		logger.info(dailys);
-
-		for (Object object : dailys) {
+	public static void createDays(BasicDBList dailySummary) {
+		for (Object object : dailySummary) {
 			DBObject day = (DBObject) object;
 			days.add(new Day(day));
 		}
+	}
 
+	public final static void main(String[] args) throws Exception {
+		String analyze = getAnalyticData();
+		logger.info(analyze);
+		BasicDBList dailySummary = getDailySummary();
+		logger.info(dailySummary);
+		createDays(dailySummary);
+		logger.info("Load days finish");
 		for (Day day : days) {
-			System.out.println(day.getDate());
-			System.out.println(day.getWeek());
-			System.out.println(day.getTotalHours());
-			System.out.println(day.getProductiveHours());
-			System.out.println(day.getDistractingHours());
-			System.out.println(day.getNeutralHours());
+			System.out.println(day.getDate() + " " + day.getWeek());
+			System.out.println("total: " + day.getTotalHours());
+			System.out.println(
+					"productive: " + day.getProductiveHours() + " " + day.getProductivePercent());
+			System.out.println("distractive: " + day.getDistractingHours() + " "
+					+ day.getDistractingPercent());
+			System.out.println("nrutral:" + day.getNeutralHours() + " " + day.getNeutralPercent());
 			double total = day.getProductiveHours() + day.getDistractingHours()
 					+ day.getNeutralHours();
 			System.out.println(total);
