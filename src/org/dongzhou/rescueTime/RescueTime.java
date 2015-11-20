@@ -2,6 +2,8 @@ package org.dongzhou.rescueTime;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
@@ -13,6 +15,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
+import com.mongodb.BasicDBList;
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
 
@@ -22,6 +25,8 @@ public class RescueTime {
 
 	public static final String ANALYTIC_DATA_API = "https://www.rescuetime.com/anapi/data";
 	public static final String DAILY_SUMMARY_API = "https://www.rescuetime.com/anapi/daily_summary_feed";
+
+	private static List<Day> days = new ArrayList<>();
 
 	/**
 	 * @param begin:
@@ -46,15 +51,15 @@ public class RescueTime {
 	}
 
 	public static String getAnalyticData() throws ClientProtocolException, IOException {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String today = sdf.format(System.currentTimeMillis());
+		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+		String today = date.format(System.currentTimeMillis());
 		return getAnalyticData("2015-11-12", today, "csv");
 	}
 
-	public static DBObject getDailySummary() throws IOException {
+	public static BasicDBList getDailySummary() throws IOException {
 		HttpUriRequest request = ApiUtil.createRequestBuilder(DAILY_SUMMARY_API).build();
 		String content = getContent(request);
-		return (DBObject) JSON.parse(content);
+		return (BasicDBList) JSON.parse(content);
 	}
 
 	private static String getContent(HttpUriRequest request)
@@ -77,8 +82,25 @@ public class RescueTime {
 	public final static void main(String[] args) throws Exception {
 		String analyze = getAnalyticData();
 		logger.info(analyze);
-		DBObject dailySummary = getDailySummary();
-		logger.info(dailySummary);
+		BasicDBList dailys = getDailySummary();
+		logger.info(dailys);
+
+		for (Object object : dailys) {
+			DBObject day = (DBObject) object;
+			days.add(new Day(day));
+		}
+
+		for (Day day : days) {
+			System.out.println(day.getDate());
+			System.out.println(day.getWeek());
+			System.out.println(day.getTotalHours());
+			System.out.println(day.getProductiveHours());
+			System.out.println(day.getDistractingHours());
+			System.out.println(day.getNeutralHours());
+			double total = day.getProductiveHours() + day.getDistractingHours()
+					+ day.getNeutralHours();
+			System.out.println(total);
+		}
 	}
 
 }
