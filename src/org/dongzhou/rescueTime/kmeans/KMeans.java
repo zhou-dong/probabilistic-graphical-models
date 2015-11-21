@@ -103,8 +103,8 @@ public class KMeans {
 	}
 
 	public static void main(String args[]) {
-		setTestPoints(2500);
-		// setPoints();
+		// setTestPoints(8);
+		setPoints();
 		setCentroids();
 		train();
 		showResult();
