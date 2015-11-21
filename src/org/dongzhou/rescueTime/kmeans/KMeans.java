@@ -21,7 +21,7 @@ public class KMeans {
 
 	public static void showResult() {
 		for (Centroid centroid : centroids) {
-			System.out.println(centroid);
+			System.out.println(centroid.getPoints().size());
 		}
 	}
 
@@ -42,8 +42,11 @@ public class KMeans {
 				error += minimize;
 			}
 
-			logger.info(miniError);
-			logger.info(error);
+			StringBuffer logBuffer = new StringBuffer();
+			logBuffer.append("before: ").append(miniError);
+			logBuffer.append("end: ").append(error);
+			logger.info(logBuffer.toString());
+			logger.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
 			if (miniError - error < 3)
 				break;
@@ -61,7 +64,6 @@ public class KMeans {
 				centroid.div(points.size());
 			}
 
-			showResult();
 		}
 	}
 

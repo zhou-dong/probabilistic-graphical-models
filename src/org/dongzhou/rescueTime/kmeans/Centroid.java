@@ -6,7 +6,6 @@ import java.util.List;
 public class Centroid extends Point {
 
 	public Centroid() {
-
 	}
 
 	public Centroid(Point point) {
