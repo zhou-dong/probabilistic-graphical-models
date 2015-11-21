@@ -49,7 +49,7 @@ public class KMeans {
 
 			if (miniError - error < 1)
 				break;
-			if (error < miniError)
+			else if (error < miniError)
 				miniError = error;
 			else if (error >= miniError)
 				break;
