@@ -2,6 +2,8 @@ package org.dongzhou.rescueTime.kmeans;
 
 import org.dongzhou.rescueTime.Day;
 
+import com.mongodb.BasicDBObject;
+
 public class Point {
 
 	public String date;
@@ -27,6 +29,16 @@ public class Point {
 		this.distractingPercentage = day.getDistractingPercent();
 		this.neutralHours = day.getNeutralHours();
 		this.neutralPercentage = day.getNeutralPercent();
+	}
+
+	public Point(Point other) {
+		this.totalHours = other.totalHours;
+		this.productiveHours = other.productiveHours;
+		this.productivePercentage = other.productivePercentage;
+		this.distractingHours = other.distractingHours;
+		this.distractingPercentage = other.distractingPercentage;
+		this.neutralHours = other.neutralHours;
+		this.neutralPercentage = other.neutralPercentage;
 	}
 
 	public Point add(Point other) {
@@ -83,7 +95,15 @@ public class Point {
 
 	@Override
 	public String toString() {
-		return day.toString();
+		BasicDBObject object = new BasicDBObject();
+		object.append("totalHours", totalHours);
+		object.append("productiveHours", productiveHours);
+		object.append("productivePercentage", productivePercentage);
+		object.append("distractingHours", distractingHours);
+		object.append("distractingPercentage", distractingPercentage);
+		object.append("neutralHours", neutralHours);
+		object.append("neutralPercentage", neutralPercentage);
+		return object.toString();
 	}
 
 }
