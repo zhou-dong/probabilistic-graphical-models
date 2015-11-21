@@ -29,3 +29,14 @@
     1. productive day
     2. entertainment day
     3. neutral day 
+
+5. Based on the result of kmeans we found, our data could divided into to parts
+    1. activity day
+        - use laptop time more than 2 hour
+    2. unactivity day
+        - use laptop time less than 2 hour
+    - Activity day
+        + more percent of time to study
+    - Unactivity day
+        + more percent of time to distract of communicate
+
