@@ -42,10 +42,7 @@ public class KMeans {
 				error += minimize;
 			}
 
-			StringBuffer logBuffer = new StringBuffer();
-			logBuffer.append("before: ").append((int) miniError);
-			logBuffer.append(" end: ").append((int) error);
-			logger.info(logBuffer.toString());
+			logIterator();
 
 			if (miniError - error < 1)
 				break;
@@ -96,6 +93,13 @@ public class KMeans {
 			check.put(random, 1);
 			return random;
 		}
+	}
+
+	private static void logIterator() {
+		StringBuffer logBuffer = new StringBuffer();
+		logBuffer.append("before: ").append((int) miniError);
+		logBuffer.append(" end: ").append((int) error);
+		logger.info(logBuffer.toString());
 	}
 
 	public static void main(String args[]) {
