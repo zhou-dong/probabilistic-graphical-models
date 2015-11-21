@@ -15,15 +15,13 @@ public class KMeans {
 
 	public static double error = 0;
 	public static double miniError = Double.MAX_VALUE;
-	public static int centroidSize = 3;
+	public static int centroidSize = 2;
 	public static List<Point> points = new ArrayList<Point>();
 	public static List<Centroid> centroids = new ArrayList<>();
 
 	public static void showResult() {
-		int index = 0;
-		for (Centroid centroid : centroids) {
-			index++;
-			logger.info("size of clouster " + index + ": " + centroid.getPoints().size());
+		for (int i = 0; i < centroids.size(); i++) {
+			logger.info("size of clouster " + i + ": " + centroids.get(i).getPoints().size());
 		}
 	}
 
@@ -84,7 +82,7 @@ public class KMeans {
 	private static void setCentroids() {
 		for (int i = 0; i < centroidSize; i++) {
 			int random = getRandom(points.size());
-			centroids.add(new Centroid(points.get(random)));
+			centroids.add(new Centroid(points.get(random).day));
 		}
 	}
 

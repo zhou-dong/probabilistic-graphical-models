@@ -3,13 +3,12 @@ package org.dongzhou.rescueTime.kmeans;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dongzhou.rescueTime.Day;
+
 public class Centroid extends Point {
 
-	public Centroid() {
-	}
-
-	public Centroid(Point point) {
-		super(point);
+	public Centroid(Day day) {
+		super(day);
 	}
 
 	private List<Point> points = new ArrayList<Point>();

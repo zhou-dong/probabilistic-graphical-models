@@ -16,9 +16,6 @@ public class Point {
 	public double neutralHours;
 	public double neutralPercentage;
 
-	public Point() {
-	}
-
 	public Point(Day day) {
 		this.day = day;
 		this.date = day.getDate();
@@ -29,16 +26,6 @@ public class Point {
 		this.distractingPercentage = day.getDistractingPercent();
 		this.neutralHours = day.getNeutralHours();
 		this.neutralPercentage = day.getNeutralPercent();
-	}
-
-	public Point(Point other) {
-		this.totalHours = other.totalHours;
-		this.productiveHours = other.productiveHours;
-		this.productivePercentage = other.productivePercentage;
-		this.distractingHours = other.distractingHours;
-		this.distractingPercentage = other.distractingPercentage;
-		this.neutralHours = other.neutralHours;
-		this.neutralPercentage = other.neutralPercentage;
 	}
 
 	public Point add(Point other) {
@@ -107,15 +94,15 @@ public class Point {
 	}
 
 	public static Point createExamplePoint() {
-		Point result = new Point();
-		result.totalHours = random(2000);
-		result.productiveHours = random(1500);
-		result.productivePercentage = random(1);
-		result.distractingHours = random(1000);
-		result.distractingPercentage = random(1);
-		result.neutralHours = random(500);
-		result.neutralPercentage = random(1);
-		return result;
+		BasicDBObject example = new BasicDBObject();
+		example.append("total_hours", random(2000));
+		example.append("all_productive_hours", random(1500));
+		example.append("all_productive_percentage", random(1));
+		example.append("all_distracting_hours", random(1000));
+		example.append("all_distracting_percentage", random(1));
+		example.append("neutral_hours", random(500));
+		example.append("neutral_percentage", random(1));
+		return new Point(new Day(example));
 	}
 
 	private static double random(int seed) {
