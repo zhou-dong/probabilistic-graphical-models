@@ -14,6 +14,10 @@ public class Centroid extends Point {
 
 	private List<Point> points = new ArrayList<Point>();
 
+	public void resetPoints() {
+		points = new ArrayList<>();
+	}
+
 	public void addPoint(Point point) {
 		points.add(point);
 	}

@@ -20,8 +20,10 @@ public class KMeans {
 	public static List<Centroid> centroids = new ArrayList<>();
 
 	public static void showResult() {
+		int index = 0;
 		for (Centroid centroid : centroids) {
-			System.out.println(centroid.getPoints().size());
+			index++;
+			logger.info("size of clouster " + index + ": " + centroid.getPoints().size());
 		}
 	}
 
@@ -43,12 +45,11 @@ public class KMeans {
 			}
 
 			StringBuffer logBuffer = new StringBuffer();
-			logBuffer.append("before: ").append(miniError);
-			logBuffer.append("end: ").append(error);
+			logBuffer.append("before: ").append((int) miniError);
+			logBuffer.append(" end: ").append((int) error);
 			logger.info(logBuffer.toString());
-			logger.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-			if (miniError - error < 3)
+			if (miniError - error < 1)
 				break;
 			if (error < miniError)
 				miniError = error;
@@ -62,6 +63,7 @@ public class KMeans {
 				for (Point point : points)
 					centroid.add(point);
 				centroid.div(points.size());
+				centroid.resetPoints();
 			}
 
 		}
@@ -99,7 +101,8 @@ public class KMeans {
 	}
 
 	public static void main(String args[]) {
-		setTestPoints(1000);
+		setTestPoints(2500);
+		// setPoints();
 		setCentroids();
 		train();
 		showResult();
