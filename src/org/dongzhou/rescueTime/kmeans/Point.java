@@ -81,15 +81,20 @@ public class Point {
 
 	@Override
 	public String toString() {
-		BasicDBObject object = new BasicDBObject();
-		object.append("totalHours", totalHours);
-		object.append("productiveHours", productiveHours);
-		object.append("productivePercentage", productivePercentage);
-		object.append("distractingHours", distractingHours);
-		object.append("distractingPercentage", distractingPercentage);
-		object.append("neutralHours", neutralHours);
-		object.append("neutralPercentage", neutralPercentage);
-		return object.toString();
+		return getJson().toString();
+	}
+
+	public BasicDBObject getJson() {
+		BasicDBObject result = new BasicDBObject();
+		result.append("totalHours", totalHours);
+		result.append("productiveHours", productiveHours);
+		result.append("productivePercentage", productivePercentage);
+		result.append("distractingHours", distractingHours);
+		result.append("distractingPercentage", distractingPercentage);
+		result.append("neutralHours", neutralHours);
+		result.append("neutralPercentage", neutralPercentage);
+		return result;
+
 	}
 
 	public static Point createExamplePoint() {

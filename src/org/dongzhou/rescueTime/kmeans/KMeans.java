@@ -20,8 +20,8 @@ public class KMeans {
 	public static List<Centroid> centroids = new ArrayList<>();
 
 	public static void showResult() {
-		for (int i = 0; i < centroids.size(); i++) {
-			logger.info("size of clouster " + i + ": " + centroids.get(i).getPoints().size());
+		for (Centroid centroid : centroids) {
+			centroid.displayPoints();
 		}
 	}
 
