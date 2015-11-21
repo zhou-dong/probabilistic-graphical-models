@@ -42,17 +42,17 @@ public class Point {
 	}
 
 	public Point add(Point other) {
-		this.totalHours = other.totalHours;
-		this.productiveHours = other.productiveHours;
-		this.productivePercentage = other.productivePercentage;
-		this.distractingHours = other.distractingHours;
-		this.distractingPercentage = other.distractingPercentage;
-		this.neutralHours = other.neutralHours;
-		this.neutralPercentage = other.distractingPercentage;
+		this.totalHours += other.totalHours;
+		this.productiveHours += other.productiveHours;
+		this.productivePercentage += other.productivePercentage;
+		this.distractingHours += other.distractingHours;
+		this.distractingPercentage += other.distractingPercentage;
+		this.neutralHours += other.neutralHours;
+		this.neutralPercentage += other.distractingPercentage;
 		return this;
 	}
 
-	public Point div(long value) {
+	public Point div(double value) {
 		this.totalHours /= value;
 		this.productiveHours /= value;
 		this.productivePercentage /= value;
@@ -104,6 +104,22 @@ public class Point {
 		object.append("neutralHours", neutralHours);
 		object.append("neutralPercentage", neutralPercentage);
 		return object.toString();
+	}
+
+	public static Point createExamplePoint() {
+		Point result = new Point();
+		result.totalHours = random(2000);
+		result.productiveHours = random(1500);
+		result.productivePercentage = random(1);
+		result.distractingHours = random(1000);
+		result.distractingPercentage = random(1);
+		result.neutralHours = random(500);
+		result.neutralPercentage = random(1);
+		return result;
+	}
+
+	private static double random(int seed) {
+		return Math.random() * seed;
 	}
 
 }
