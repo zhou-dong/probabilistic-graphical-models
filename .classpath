@@ -21,6 +21,6 @@
 	<classpathentry kind="lib" path="lib/mongodb-driver-core-3.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/infoset-0.10.2.jar"/>
 	<classpathentry kind="lib" path="lib/infoset-memory-0.10.2.jar"/>
-	<classpathentry kind="lib" path="lib/jhmm.jar"/>
+	<classpathentry kind="lib" path="lib/jhmm.jar" sourcepath="/Users/dongdong/Downloads/jhmm-1.1.0/src.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
