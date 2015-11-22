@@ -19,5 +19,8 @@
 	<classpathentry kind="lib" path="lib/mongodb-driver-3.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/bson-3.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/mongodb-driver-core-3.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/infoset-0.10.2.jar"/>
+	<classpathentry kind="lib" path="lib/infoset-memory-0.10.2.jar"/>
+	<classpathentry kind="lib" path="lib/jhmm.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
