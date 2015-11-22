@@ -23,7 +23,7 @@
 
 4. Because we have data, so we wanna find relations between them, At first, we thought, the online doing things well affect sleep, or eating thing, also we thind different day of the week will have different attension on different area, like study or watch vedios. It just have some many ideas, but hard to choose the best one.
 
-And then we thought, let the data told us, then we decidec use K-means to cluster data for us, then research the data.
+- And then we thought, let the data told us, then we decidec use K-means to cluster data for us, then research the data.
 
 5. Use K-means to seperate the all date into 3 different categories
     - At first we just wanna analyze our data, but we did not know what is real relations inside our data, so we use kmeans to help us to find the relations.
