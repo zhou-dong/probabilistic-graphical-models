@@ -43,3 +43,6 @@
     - Unactivity day
         + more percent of time to distract of communicate
 
+7. We divided whole data into 2 parts (also because we don't have too much data, we only split our data into 2 part):
+    - study or working. like "coursera","github","ecipse","atom"
+    - entertainment. like "wechat","weibo","youtube" and other
