@@ -15,9 +15,8 @@
 <transition to="activity" probability="0.95"/>
 <transition to="unactivity" probability="0.05"/>
 <emissions>
-<symbol char="1" probability="0.3333"/>
-<symbol char="2" probability="0.3333"/>
-<symbol char="3" probability="0.3333"/>
+<symbol char="1" probability="0.5"/>
+<symbol char="2" probability="0.5"/>
 </emissions>
 </state>
 
@@ -25,9 +24,8 @@
 <transition to="activity" probability="0.9"/>
 <transition to="unactivity" probability="0.1"/>
 <emissions>
-<symbol char="1" probability="0.3333"/>
-<symbol char="2" probability="0.3333"/>
-<symbol char="3" probability="0.3333"/>
+<symbol char="1" probability="0.5"/>
+<symbol char="2" probability="0.5"/>
 </emissions>
 </state>
 

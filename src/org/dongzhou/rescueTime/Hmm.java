@@ -1,6 +1,8 @@
 package org.dongzhou.rescueTime;
 
-import com.milowski.hmm.tools.Forward;
+import java.util.List;
+
+import org.apache.log4j.Logger;
 
 /* 
  * java -jar jhmm.jar model.xml input.txt
@@ -14,11 +16,22 @@ import com.milowski.hmm.tools.Forward;
  */
 public class Hmm {
 
+	private static Logger logger = Logger.getLogger(Hmm.class.getName());
+
 	public static void main(String args[]) {
-
-		Forward.main(new String[2]);
-
-		System.out.println("Hello world!");
-
+		// Forward.main(new String[2]);
+		setPoints();
 	}
+
+	protected static void setPoints() {
+		List<Day> days = RescueTime.getDays();
+		for (Day day : days) {
+			double productive = day.getProductivePercent();
+			double other = day.getDistractingPercent() + day.getNeutralPercent();
+			logger.info(productive);
+			logger.info(other);
+			logger.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		}
+	}
+
 }
