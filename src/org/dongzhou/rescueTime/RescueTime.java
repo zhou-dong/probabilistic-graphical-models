@@ -74,8 +74,8 @@ public class RescueTime {
 			HttpEntity entity = response.getEntity();
 			return EntityUtils.toString(entity);
 		} finally {
-			ApiUtil.close(response);
-			ApiUtil.close(httpclient);
+			FileUtil.close(response);
+			FileUtil.close(httpclient);
 		}
 	}
 

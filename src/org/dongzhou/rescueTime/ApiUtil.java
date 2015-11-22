@@ -1,7 +1,5 @@
 package org.dongzhou.rescueTime;
 
-import java.io.Closeable;
-import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -28,14 +26,6 @@ public class ApiUtil {
 		} catch (URISyntaxException e) {
 			logger.error(e);
 			return null;
-		}
-	}
-
-	public static void close(Closeable closeable) {
-		try {
-			closeable.close();
-		} catch (IOException e) {
-			logger.error(e);
 		}
 	}
 
