@@ -26,6 +26,7 @@ public class KMeans {
 	}
 
 	public static void train() {
+
 		while (true) {
 
 			for (Point point : points) {
@@ -62,6 +63,7 @@ public class KMeans {
 			}
 
 		}
+
 	}
 
 	protected static void setTestPoints(int size) {
@@ -103,11 +105,13 @@ public class KMeans {
 	}
 
 	public static void main(String args[]) {
-		setTestPoints(8);
-		// setPoints();
+
+		// setTestPoints(8);
+		setPoints();
 		setCentroids();
 		train();
 		showResult();
+
 	}
 
 }

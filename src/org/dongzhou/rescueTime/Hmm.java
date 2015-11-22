@@ -26,11 +26,12 @@ public class Hmm {
 	protected static void setPoints() {
 		List<Day> days = RescueTime.getDays();
 		for (Day day : days) {
-			double productive = day.getProductivePercent();
-			double other = day.getDistractingPercent() + day.getNeutralPercent();
-			logger.info(productive);
-			logger.info(other);
-			logger.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			double totalHours = day.getTotalHours();
+			double productive = day.getProductiveHours();
+			double distract = day.getDistractingHours();
+			double neutral = day.getNeutralHours();
+			boolean state = productive > (distract + neutral);
+			logger.info(totalHours + " " + productive + " " + (distract + neutral) + " " + state);
 		}
 	}
 
