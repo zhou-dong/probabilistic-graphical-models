@@ -1,35 +1,36 @@
-<hmm xmlns="urn:publicid:IDN+milowski.com:schemas:math:hmm:2004:us" name="Loaded Dice Model" error="0.0005">
+<hmm xmlns="urn:publicid:IDN+milowski.com:schemas:math:hmm:2004:us"
+	name="Loaded Dice Model" error="0.0005">
 
-<description>
-<body xmlns="http://www.w3.org/1999/xhtml">
-<p>This is the two dice game example from the Biological Sequence Analysis book by Durbin et. al.  Essentially, it models switch between fair and loaded six-sided dice (i.e. the "occasionally dishonest casino" example).</p>
-</body>
-</description>
+	<description>
+		<body xmlns="http://www.w3.org/1999/xhtml">
+			<p>w: work; p: play</p>
+		</body>
+	</description>
 
-<alphabet lexicon="12" />
+	<alphabet lexicon="wp" />
 
-<start at="activity" probability="1.0" />
-<start at="unactivity" probability="0" />
+	<start at="activity" probability="0.8" />
+	<start at="unactivity" probability="0.2" />
 
-<state id="activity">
-<transition to="activity" probability="0.95" />
-<transition to="unactivity" probability="0.05" />
-<emissions>
-<symbol char="1" probability="0.5" />
-<symbol char="2" probability="0.5" />
-</emissions>
-</state>
+	<state id="activity">
+		<transition to="activity" probability="0.75" />
+		<transition to="unactivity" probability="0.25" />
+		<emissions>
+			<symbol char="w" probability="0.8" />
+			<symbol char="p" probability="0.2" />
+		</emissions>
+	</state>
 
-<state id="unactivity">
-<transition to="activity" probability="0.9" />
-<transition to="unactivity" probability="0.1" />
-<emissions>
-<symbol char="1" probability="0.5" />
-<symbol char="2" probability="0.5" />
-</emissions>
-</state>
+	<state id="unactivity">
+		<transition to="activity" probability="0.8" />
+		<transition to="unactivity" probability="0.2" />
+		<emissions>
+			<symbol char="w" probability="0.4" />
+			<symbol char="p" probability="0.6" />
+		</emissions>
+	</state>
 
-<final at="activity" probability="0.5" />
-<final at="unactivity" probability="0.5" />
+	<final at="activity" probability="0.5" />
+	<final at="unactivity" probability="0.5" />
 
 </hmm>

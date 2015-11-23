@@ -20,6 +20,7 @@ public class FileUtil {
 			logger.error(e);
 		}
 		close(writer);
+		logger.info("logger to file: " + fileName);
 	}
 
 	public static void close(Closeable closeable) {
