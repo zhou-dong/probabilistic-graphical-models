@@ -60,7 +60,7 @@ public class Hmm {
 
 	protected static void createTrainingFile(String fileName) {
 		FileUtil.write(fileName, getStringData(observe), false);
-		FileUtil.write(fileName, getStringData(latent), true);
+		// FileUtil.write(fileName, getStringData(latent), true);
 	}
 
 	private static String getStringData(List<Object> datas) {
