@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.milowski.hmm.tools.Train;
+
 /* 
  * java -jar jhmm.jar model.xml input.txt
  * 
@@ -17,27 +19,50 @@ import org.apache.log4j.Logger;
  */
 public class Hmm {
 
+	static enum Execute {
+		CREATE_DATA, FORWARD, GENERATE, PREDICT, TRAIN;
+	}
+
 	protected static Logger logger = Logger.getLogger(Hmm.class.getName());
 
-	private static List<Integer> latent = new ArrayList<>();
-	private static List<Integer> observe = new ArrayList<>();
+	private static List<Object> latent = new ArrayList<>();
+	private static List<Object> observe = new ArrayList<>();
 	private static String trainingFile = "rescue-time-model-data.txt";
+	private static String model = "rescue-time-model.xml";
+	private static String trainedModel = "rescue-time-model-trained.xml";
 
 	public static void main(String args[]) {
-		// Forward.main(new String[2]);
-		setTrainingData();
-		createTrainingFile(trainingFile);
+
+		Execute execute = Execute.TRAIN;
+		switch (execute) {
+		case CREATE_DATA:
+			setTrainingData();
+			createTrainingFile(trainingFile);
+			break;
+		case TRAIN:
+			String[] trainArgs = { model, "0.5", "-f", trainingFile };
+			Train.main(trainArgs);
+			break;
+		case FORWARD:
+			break;
+		case GENERATE:
+			break;
+		case PREDICT:
+			break;
+		}
 	}
 
 	protected static void createTrainingFile(String fileName) {
 		FileUtil.write(fileName, getStringData(latent), false);
 		FileUtil.write(fileName, getStringData(observe), true);
+		// FileUtil.write(fileName, "1 = activity", true);
+		// FileUtil.write(fileName, "2 = unactivity", true);
 	}
 
-	private static String getStringData(List<Integer> datas) {
+	private static String getStringData(List<Object> datas) {
 		StringBuffer result = new StringBuffer();
-		for (Integer data : datas)
-			result.append(data);
+		for (Object data : datas)
+			result.append(data.toString());
 		return result.toString();
 	}
 
@@ -45,9 +70,9 @@ public class Hmm {
 		List<Day> days = RescueTime.getDays();
 		for (Day day : days) {
 			long totalHours = Math.round(day.getTotalHours());
-			int hourIndex = totalHours > 4 ? 1 : 0;
+			int hourIndex = totalHours > 4 ? 1 : 1;
 			double productive = day.getProductivePercent();
-			int state = productive > 50d ? 1 : 0;
+			int state = productive > 50d ? 1 : 2;
 			latent.add(hourIndex);
 			observe.add(state);
 		}

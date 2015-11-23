@@ -1,0 +1,22 @@
+<hmm xmlns='urn:publicid:IDN+milowski.com:schemas:math:hmm:2004:us' name='Loaded Dice Model' error='5.0E-4'>
+
+<start at='activity' probability='1.0'/>
+<start at='unactivity' probability='0.0'/>
+
+<state id='activity'>
+<transition to='activity' probability='0.9499677826455546'/>
+<transition to='unactivity' probability='0.05003221735444525'/>
+<emissions>
+<symbol char='1' probability='0.8106224236709799'/>
+<symbol char='2' probability='0.1893775763290201'/>
+</emissions>
+</state>
+
+<state id='unactivity'>
+<transition to='activity' probability='0.8998368338415603'/>
+<transition to='unactivity' probability='0.10016316615843969'/>
+<emissions>
+<symbol char='1' probability='0.7886650517833181'/>
+<symbol char='2' probability='0.21133494821668197'/>
+</emissions>
+</state>
