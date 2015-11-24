@@ -46,3 +46,9 @@
 7. We divided whole data into 2 parts (also because we don't have too much data, we only split our data into 2 part):
     - study or working. like "coursera","github","ecipse","atom"
     - entertainment. like "wechat","weibo","youtube" and other
+
+8. Use Jhmm to execute HMM
+    1. define the model
+    2. train the model
+    3. execute forward algorithm
+    4. execute predict
