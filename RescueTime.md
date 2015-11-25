@@ -52,3 +52,5 @@
     2. train the model
     3. execute forward algorithm
     4. execute predict
+
+9. evaluate the result
