@@ -1,8 +1,6 @@
 package org.zhengbo.study;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,8 +18,6 @@ public class WriteXmlToCsv2 {
 	static Pattern pattern = Pattern.compile("[.,\"\\?!:']");
 	static String filePath = "/Users/dongdong/Downloads/Restaurants_Train.xml";
 	static String csvPath = "/Users/dongdong/Downloads/Restaurants_Train2.csv";
-	static Map<String, Integer> categoryMap = new HashMap<String, Integer>();
-	static Map<String, Integer> termMap = new HashMap<String, Integer>();
 
 	static void addHeaderToFolie() {
 		StringBuffer header = new StringBuffer();
