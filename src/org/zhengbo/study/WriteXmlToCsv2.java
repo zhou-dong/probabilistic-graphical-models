@@ -23,7 +23,7 @@ public class WriteXmlToCsv2 {
 	static Map<String, Integer> categoryMap = new HashMap<String, Integer>();
 	static Map<String, Integer> termMap = new HashMap<String, Integer>();
 
-	static void addHeader() {
+	static void addHeaderToFolie() {
 		StringBuffer header = new StringBuffer();
 		stringBufferappendWithComma(header, "id");
 		stringBufferappendWithComma(header, "docId");
@@ -57,33 +57,26 @@ public class WriteXmlToCsv2 {
 
 	public static void main(String args[]) throws Exception {
 		System.out.println("begin to read file with path: " + filePath);
-
-		addHeader();
-
+		addHeaderToFolie();
 		Document document = createDocument();
-
 		NodeList sentenceList = document.getElementsByTagName("sentence");
-
 		for (int i = 0; i < sentenceList.getLength(); i++) {
-
-			StringBuffer buffer = new StringBuffer().append(i + 1).append(COMMA_DELIMITER);
-
+			StringBuffer buffer = new StringBuffer();
+			// add id
+			buffer.append(i + 1).append(COMMA_DELIMITER);
 			Element sentence = (Element) sentenceList.item(i);
-
+			// add docId
 			String docId = sentence.getAttribute("id");
 			stringBufferappendWithComma(buffer, docId);
-
+			// add critique
 			NodeList categories = sentence.getElementsByTagName("aspectCategory");
 			addCategoriesToString(categories, buffer);
-
+			// add text
 			String text = removeCharacter(sentence.getTextContent().trim());
 			buffer.append(text);
-
 			FileUtil.write(csvPath, buffer.toString(), true);
-
 		}
-
-		System.out.println("finish ");
+		System.out.println("finish write file to: " + csvPath);
 	}
 
 	static void addCategoriesToString(NodeList categories, StringBuffer buffer) {
