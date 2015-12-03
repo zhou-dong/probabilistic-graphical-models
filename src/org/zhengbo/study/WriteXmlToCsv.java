@@ -1,7 +1,9 @@
 package org.zhengbo.study;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,6 +24,8 @@ public class WriteXmlToCsv {
 	static String csvPath = "/Users/dongdong/Downloads/Restaurants_Train.csv";
 	static Map<String, Integer> categoryMap = new HashMap<String, Integer>();
 	static Map<String, Integer> termMap = new HashMap<String, Integer>();
+
+	static List<String> files = new ArrayList<>();
 
 	static void addHeader() {
 		StringBuffer header = new StringBuffer();
