@@ -60,8 +60,6 @@ public class WriteMultiXmlToCsv {
 		return document;
 	}
 
-	static int lineNumber = 1;
-
 	public static void main(String args[]) throws Exception {
 		addHeaderToFolie();
 		addXmlFilePath();
@@ -75,24 +73,22 @@ public class WriteMultiXmlToCsv {
 	static void writeToCsv(Document document) {
 		NodeList sentenceList = document.getElementsByTagName("sentence");
 		for (int i = 0; i < sentenceList.getLength(); i++) {
-			StringBuffer buffer = new StringBuffer();
-			// add id
-			buffer.append(lineNumber).append(COMMA_DELIMITER);
 			Element sentence = (Element) sentenceList.item(i);
-			// add docId
-			String docId = sentence.getAttribute("id");
-			stringBufferappendWithComma(buffer, docId);
-			// add critique
 			NodeList categories = sentence.getElementsByTagName("aspectCategory");
-			// add text
+			String docId = sentence.getAttribute("id");
 			String text = removeCharacter(sentence.getTextContent().trim());
-			addCategoriesToString(categories, buffer, text);
+			addCategoriesToString(categories, text, docId);
 		}
 	}
 
-	static void addCategoriesToString(NodeList categories, StringBuffer buffer, String text) {
+	static int lineNumber = 0;
+
+	static void addCategoriesToString(NodeList categories, String text, String docId) {
 		for (int x = 0; x < categories.getLength(); x++) {
 			lineNumber++;
+			StringBuffer buffer = new StringBuffer();
+			stringBufferappendWithComma(buffer, lineNumber + "");
+			stringBufferappendWithComma(buffer, docId);
 			Element aspectCategory = (Element) categories.item(x);
 			String polarity = aspectCategory.getAttribute("polarity");
 			stringBufferappendWithComma(buffer, polarity);
