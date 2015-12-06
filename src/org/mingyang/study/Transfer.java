@@ -14,7 +14,7 @@ public class Transfer {
 	private static String spamPath = "/Users/dongdong/Desktop/mingyang/spam";
 	private static String csvPath = "/Users/dongdong/Desktop/mingyang/data.csv";
 
-	static Pattern pattern = Pattern.compile("[.,\"\\?!:'()-/$#]");
+	static Pattern pattern = Pattern.compile("[.,\"\\?!:'()-/$#%@|]");
 
 	static void addHeaderToFolie() {
 		String header = "id,category,content";
@@ -26,15 +26,35 @@ public class Transfer {
 		return matcher.replaceAll("");
 	}
 
+	public static String getString(String src) {
+		char[] cr = src.toCharArray();
+		char[] str = new char[cr.length];
+		int index = 0;
+		for (char newchar : cr) {
+			if ((newchar <= 'Z' && newchar >= 'A') || (newchar <= 'z' && newchar >= 'a')
+					|| newchar == ' ') {
+				str[index++] = newchar;
+			}
+		}
+		return new String(str, 0, index);
+	}
+
 	public static List<String> getContent(String path) {
 		List<String> result = new ArrayList<String>();
 		File folder = new File(path);
 		File[] files = folder.listFiles();
 		for (File file : files) {
-			String content = FileUtil.reader(file, " ");
-			content = removeCharacter(content);
-			content = content.replace("Subject", "");
-			result.add(content);
+			List<String> lines = FileUtil.reader(file, " ");
+			for (String line : lines) {
+				// line = removeCharacter(line);
+				line = line.replace("Subject", "");
+				// line = line.replaceAll("\\d+", "");
+				line = line.trim();
+				line = getString(line);
+				if (line == null || line.isEmpty() || " ".equals(line))
+					continue;
+				result.add(line);
+			}
 		}
 		return result;
 	}

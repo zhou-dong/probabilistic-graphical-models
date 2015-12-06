@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -27,18 +29,17 @@ public class FileUtil {
 		logger.debug("logger to file: " + fileName);
 	}
 
-	public static String reader(File file, String seperate) {
+	public static List<String> reader(File file, String seperate) {
 		if (null == seperate) {
 			seperate = System.lineSeparator();
 		}
 		BufferedReader reader = null;
-		StringBuilder result = new StringBuilder();
+		List<String> result = new ArrayList<>();
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			String line = reader.readLine();
 			while (line != null) {
-				result.append(line);
-				result.append(seperate);
+				result.add(line);
 				line = reader.readLine();
 			}
 		} catch (FileNotFoundException e) {
@@ -48,7 +49,7 @@ public class FileUtil {
 		} finally {
 			close(reader);
 		}
-		return result.toString();
+		return result;
 	}
 
 	public static void close(Closeable closeable) {
