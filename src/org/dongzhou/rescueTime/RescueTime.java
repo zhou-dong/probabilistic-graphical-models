@@ -104,8 +104,10 @@ public class RescueTime {
 		logger.info(dailySummary);
 		setDays(dailySummary);
 		logger.info("Load days finish");
-		for (Day day : days) {
+	}
 
+	protected static void display() {
+		for (Day day : days) {
 			System.out.println(day.getDate() + " " + day.getWeek());
 			System.out.println("total: " + day.getTotalHours());
 			System.out.println(
@@ -118,5 +120,4 @@ public class RescueTime {
 			System.out.println(total);
 		}
 	}
-
 }
