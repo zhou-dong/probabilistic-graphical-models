@@ -42,7 +42,7 @@ public class RescueTime {
 			throws ClientProtocolException, IOException {
 		RequestBuilder requestBuilder = ApiUtil.createRequestBuilder(ANALYTIC_DATA_API);
 		requestBuilder.addParameter("perspective", "rank");
-		requestBuilder.addParameter("restrict_kind", "productivity");
+		requestBuilder.addParameter("restrict_kind", "overview");
 		requestBuilder.addParameter("restrict_begin", begin);
 		requestBuilder.addParameter("restrict_end", end);
 		requestBuilder.addParameter("format", type);
