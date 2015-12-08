@@ -27,7 +27,6 @@ public class Hmm {
 
 	protected static Logger logger = Logger.getLogger(Hmm.class.getName());
 
-	private static List<Object> latent = new ArrayList<>();
 	private static List<Object> observe = new ArrayList<>();
 	private static String trainingData = "rescue-time-model-training.data";
 	private static String data = "rescue-time-model.data";
@@ -74,11 +73,15 @@ public class Hmm {
 		List<Day> days = RescueTime.getDays();
 		for (Day day : days) {
 			long totalHours = Math.round(day.getTotalHours());
-			int hourIndex = totalHours > 4 ? 1 : 2;
 			double productive = day.getProductivePercent();
-			char state = productive > 50d ? 'w' : 'p';
-			latent.add(hourIndex);
-			observe.add(state);
+
+			boolean isTimeEnough = totalHours > 4 ? true : false;
+			boolean isProductive = productive > 50d ? true : false;
+
+			if (isTimeEnough && isProductive)
+				observe.add('a');
+			else
+				observe.add('u');
 		}
 	}
 

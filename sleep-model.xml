@@ -1,0 +1,37 @@
+<hmm xmlns="urn:publicid:IDN+milowski.com:schemas:math:hmm:2004:us"
+	name="Loaded Dice Model" error="0.0005">
+
+	<description>
+		<body xmlns="http://www.w3.org/1999/xhtml">
+			<p>Hidden: sleeping normal or late</p>
+			<p>Observation: a: activity; u: unactivity</p>
+		</body>
+	</description>
+
+	<alphabet lexicon="au" />
+
+	<start at="normal" probability="0.7" />
+	<start at="late" probability="0.3" />
+
+	<state id="normal">
+		<transition to="normal" probability="0.8" />
+		<transition to="late" probability="0.2" />
+		<emissions>
+			<symbol char="a" probability="0.8" />
+			<symbol char="u" probability="0.2" />
+		</emissions>
+	</state>
+
+	<state id="late">
+		<transition to="normal" probability="0.7" />
+		<transition to="late" probability="0.3" />
+		<emissions>
+			<symbol char="a" probability="0.4" />
+			<symbol char="u" probability="0.6" />
+		</emissions>
+	</state>
+
+	<final at="normal" probability="0.6" />
+	<final at="late" probability="0.4" />
+
+</hmm>
