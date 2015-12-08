@@ -1,0 +1,29 @@
+<hmm xmlns='urn:publicid:IDN+milowski.com:schemas:math:hmm:2004:us' name='Loaded Dice Model' error='5.0E-4'>
+
+<alphabet lexicon="au" />
+
+<start at='normal' probability='0.7'/>
+<start at='late' probability='0.3'/>
+
+<state id='normal'>
+<transition to='normal' probability='0.6880615727637206'/>
+<transition to='late' probability='0.3119384272362795'/>
+<emissions>
+<symbol char='a' probability='0.4018109152645787'/>
+<symbol char='u' probability='0.5981890847354213'/>
+</emissions>
+</state>
+
+<state id='late'>
+<transition to='normal' probability='0.5155774146565446'/>
+<transition to='late' probability='0.48442258534345556'/>
+<emissions>
+<symbol char='a' probability='0.09222903539706066'/>
+<symbol char='u' probability='0.9077709646029396'/>
+</emissions>
+</state>
+
+<final at='normal' probability='0.6'/>
+<final at='late' probability='0.4'/>
+
+</hmm>

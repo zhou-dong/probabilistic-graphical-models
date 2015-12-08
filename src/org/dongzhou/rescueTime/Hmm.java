@@ -29,37 +29,48 @@ public class Hmm {
 
 	private static List<Object> observe = new ArrayList<>();
 	private static String trainingData = "rescue-time-model-training.data";
-	private static String data = "rescue-time-model.data";
-	private static String model = "rescue-time-model.xml";
-	private static String updatedModel = "rescue-time-model-update.xml";
-	private static String[] hmmArgs = { updatedModel, data };
 
-	public static void main(String args[]) {
+	protected static String sleepingModel = "sleep-model.xml";
+	protected static String sleepingTrainedModel = "sleep-trained-model.xml";
+	protected static String sleepingTestData = "sleep-test.data";
 
-		Execute execute = Execute.FORWARD;
-		switch (execute) {
+	private static void execute(Execute option, String model, String data) {
+		logger.info("begin to execute HMM");
+		switch (option) {
 		case CREATE_DATA:
 			setTrainingData();
 			createTrainingFile(trainingData);
 			break;
 		case TRAIN:
-			String[] trainArgs = { model, "0.5", "-f", trainingData };
-			Train.main(trainArgs);
+			Train.main(new String[] { model, "0.5", "-f", data });
 			break;
 		case FORWARD:
-			Forward.main(hmmArgs);
+			Forward.main(new String[] { model, data });
+			break;
+		case PREDICT:
+			Predict.main(new String[] { model, data });
 			break;
 		case GENERATE:
 			break;
-		case PREDICT:
-			Predict.main(hmmArgs);
+		default:
+			logger.info("sorry no this execute option");
 			break;
 		}
+		logger.info("execute finish");
+
+	}
+
+	public static void main(String args[]) {
+
+		// execute(Execute.CREATE_DATA, null, null);
+
+		// execute(Execute.TRAIN, sleepingModel, trainingData);
+
+		execute(Execute.FORWARD, sleepingTrainedModel, sleepingTestData);
 	}
 
 	protected static void createTrainingFile(String fileName) {
 		FileUtil.write(fileName, getStringData(observe), false);
-		// FileUtil.write(fileName, getStringData(latent), true);
 	}
 
 	private static String getStringData(List<Object> datas) {
@@ -76,7 +87,7 @@ public class Hmm {
 			double productive = day.getProductivePercent();
 
 			boolean isTimeEnough = totalHours > 4 ? true : false;
-			boolean isProductive = productive > 50d ? true : false;
+			boolean isProductive = productive > 33d ? true : false;
 
 			if (isTimeEnough && isProductive)
 				observe.add('a');
